@@ -6,7 +6,8 @@ target 'RavenTest' do
   use_frameworks!
 
   # Pods for RavenTest
-  pod 'ConnectionLayer'
+  pod 'ConnectionLayer', '0.0.3'
+  pod 'lottie-ios', '4.2.0'
   target 'RavenTestTests' do
     inherit! :search_paths
     # Pods for testing
