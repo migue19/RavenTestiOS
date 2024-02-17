@@ -31,9 +31,9 @@ class HomeVC: UIViewController {
 /// Protocolo para recibir datos del presenter.
 extension HomeVC: HomeViewProtocol {
     func showData(data: [String]) {
-        DispatchQueue.main.async {
-            self.dataSources = data
-            self.tableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSources = data
+            self?.tableView.reloadData()
         }
     }
 }
