@@ -17,7 +17,6 @@
 		F21B3BCF2B80487600E956DF /* RavenTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BCE2B80487600E956DF /* RavenTestTests.swift */; };
 		F21B3BD92B80487600E956DF /* RavenTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BD82B80487600E956DF /* RavenTestUITests.swift */; };
 		F21B3BDB2B80487600E956DF /* RavenTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BDA2B80487600E956DF /* RavenTestUITestsLaunchTests.swift */; };
-		F21B3BEE2B804F0C00E956DF /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BE82B804F0C00E956DF /* HomeVC.xib */; };
 		F21B3BEF2B804F0C00E956DF /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BE92B804F0C00E956DF /* HomePresenter.swift */; };
 		F21B3BF02B804F0C00E956DF /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEA2B804F0C00E956DF /* HomeRouter.swift */; };
 		F21B3BF12B804F0C00E956DF /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */; };
@@ -80,7 +79,6 @@
 		F21B3BD42B80487600E956DF /* RavenTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RavenTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21B3BD82B80487600E956DF /* RavenTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RavenTestUITests.swift; sourceTree = "<group>"; };
 		F21B3BDA2B80487600E956DF /* RavenTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RavenTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F21B3BE82B804F0C00E956DF /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		F21B3BE92B804F0C00E956DF /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		F21B3BEA2B804F0C00E956DF /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				F21B3C062B806ABC00E956DF /* Cells */,
-				F21B3BE82B804F0C00E956DF /* HomeVC.xib */,
 				F21B3BE92B804F0C00E956DF /* HomePresenter.swift */,
 				F21B3BEA2B804F0C00E956DF /* HomeRouter.swift */,
 				F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */,
@@ -422,7 +419,6 @@
 				F21B3C212B81353100E956DF /* news-loader.json in Resources */,
 				F21B3BC42B80487500E956DF /* LaunchScreen.storyboard in Resources */,
 				F21B3C112B8118B400E956DF /* DetailVC.xib in Resources */,
-				F21B3BEE2B804F0C00E956DF /* HomeVC.xib in Resources */,
 				F21B3BC12B80487500E956DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

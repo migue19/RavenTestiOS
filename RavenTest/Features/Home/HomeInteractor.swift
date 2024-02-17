@@ -12,7 +12,7 @@ class HomeInteractor {
 extension HomeInteractor: HomeInteractorInputProtocol {
     func requestData() {
         let connectionLayer = ConnectionLayer(isDebug: false)
-        let url = NYTimesApi.base
+        let url = NYTimesApi.emailedPath
         connectionLayer.connectionRequest(url: url, method: .get, data: nil) { data, error in
             guard let data = data else {
                 return
