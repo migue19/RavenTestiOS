@@ -14,6 +14,10 @@ class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
+    }
+    func getData() {
+        presenter?.getData()
     }
 }
 /// Protocolo para recibir datos del presenter.

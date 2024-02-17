@@ -14,6 +14,10 @@ class HomePresenter {
     var router: HomeRouterProtocol?
 }
 extension HomePresenter: HomePresenterProtocol {
+    func getData() {
+        interactor?.requestData()
+    }
+    
 }
 extension HomePresenter: HomeInteractorOutputProtocol {
 }

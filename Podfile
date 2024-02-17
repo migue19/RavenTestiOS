@@ -6,7 +6,7 @@ target 'RavenTest' do
   use_frameworks!
 
   # Pods for RavenTest
-
+  pod 'ConnectionLayer'
   target 'RavenTestTests' do
     inherit! :search_paths
     # Pods for testing

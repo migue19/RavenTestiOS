@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5ED4D4ADDD27F30DEBCC6374 /* Pods_RavenTest_RavenTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D300DB393F3B3647BB8804 /* Pods_RavenTest_RavenTestUITests.framework */; };
+		A1A2038F45F533A28A9B5946 /* Pods_RavenTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6A5D14D25FB58BA90AD7F9F /* Pods_RavenTestTests.framework */; };
+		C71F166DDB77178D06AA9CA2 /* Pods_RavenTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 970984608ED11800B50FC301 /* Pods_RavenTest.framework */; };
 		F21B3BB52B80487400E956DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BB42B80487400E956DF /* AppDelegate.swift */; };
 		F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BBD2B80487400E956DF /* RavenTest.xcdatamodeld */; };
 		F21B3BC12B80487500E956DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BC02B80487500E956DF /* Assets.xcassets */; };
@@ -20,6 +23,7 @@
 		F21B3BF12B804F0C00E956DF /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */; };
 		F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEC2B804F0C00E956DF /* HomeProtocol.swift */; };
 		F21B3BF32B804F0C00E956DF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BED2B804F0C00E956DF /* HomeVC.swift */; };
+		F21B3BF62B80519C00E956DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BF52B80519C00E956DF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42D300DB393F3B3647BB8804 /* Pods_RavenTest_RavenTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTest_RavenTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54F912DE230DCABB3D6F15DF /* Pods-RavenTest-RavenTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTest-RavenTestUITests.release.xcconfig"; path = "Target Support Files/Pods-RavenTest-RavenTestUITests/Pods-RavenTest-RavenTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5CD72028A4BBDCED252BA934 /* Pods-RavenTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTest.debug.xcconfig"; path = "Target Support Files/Pods-RavenTest/Pods-RavenTest.debug.xcconfig"; sourceTree = "<group>"; };
+		81E2BC8BAC2365A374491965 /* Pods-RavenTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTest.release.xcconfig"; path = "Target Support Files/Pods-RavenTest/Pods-RavenTest.release.xcconfig"; sourceTree = "<group>"; };
+		8CCF091C4464BC7736070AD0 /* Pods-RavenTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestTests.release.xcconfig"; path = "Target Support Files/Pods-RavenTestTests/Pods-RavenTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		970984608ED11800B50FC301 /* Pods_RavenTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F5F30038DCA1E8FCCC06B5 /* Pods-RavenTest-RavenTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTest-RavenTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-RavenTest-RavenTestUITests/Pods-RavenTest-RavenTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6A5D14D25FB58BA90AD7F9F /* Pods_RavenTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0D1A4235189DD250E7D3D8 /* Pods-RavenTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestTests.debug.xcconfig"; path = "Target Support Files/Pods-RavenTestTests/Pods-RavenTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F21B3BB12B80487400E956DF /* RavenTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21B3BB42B80487400E956DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F21B3BBE2B80487400E956DF /* RavenTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RavenTest.xcdatamodel; sourceTree = "<group>"; };
@@ -57,6 +70,7 @@
 		F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		F21B3BEC2B804F0C00E956DF /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		F21B3BED2B804F0C00E956DF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		F21B3BF52B80519C00E956DF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C71F166DDB77178D06AA9CA2 /* Pods_RavenTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A2038F45F533A28A9B5946 /* Pods_RavenTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +94,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED4D4ADDD27F30DEBCC6374 /* Pods_RavenTest_RavenTestUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		307C1DD67F8817D09DD3194A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				970984608ED11800B50FC301 /* Pods_RavenTest.framework */,
+				42D300DB393F3B3647BB8804 /* Pods_RavenTest_RavenTestUITests.framework */,
+				E6A5D14D25FB58BA90AD7F9F /* Pods_RavenTestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AE4A2D6AB62DE0E67397CA8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5CD72028A4BBDCED252BA934 /* Pods-RavenTest.debug.xcconfig */,
+				81E2BC8BAC2365A374491965 /* Pods-RavenTest.release.xcconfig */,
+				C2F5F30038DCA1E8FCCC06B5 /* Pods-RavenTest-RavenTestUITests.debug.xcconfig */,
+				54F912DE230DCABB3D6F15DF /* Pods-RavenTest-RavenTestUITests.release.xcconfig */,
+				EA0D1A4235189DD250E7D3D8 /* Pods-RavenTestTests.debug.xcconfig */,
+				8CCF091C4464BC7736070AD0 /* Pods-RavenTestTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F21B3BA82B80487400E956DF = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +131,8 @@
 				F21B3BCD2B80487600E956DF /* RavenTestTests */,
 				F21B3BD72B80487600E956DF /* RavenTestUITests */,
 				F21B3BB22B80487400E956DF /* Products */,
+				4AE4A2D6AB62DE0E67397CA8 /* Pods */,
+				307C1DD67F8817D09DD3194A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				F21B3BB42B80487400E956DF /* AppDelegate.swift */,
+				F21B3BF42B80517F00E956DF /* Constants */,
 				F21B3BE72B804ECB00E956DF /* Home */,
 				F21B3BC02B80487500E956DF /* Assets.xcassets */,
 				F21B3BC22B80487500E956DF /* LaunchScreen.storyboard */,
@@ -147,6 +190,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		F21B3BF42B80517F00E956DF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F21B3BF52B80519C00E956DF /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F21B3BDE2B80487600E956DF /* Build configuration list for PBXNativeTarget "RavenTest" */;
 			buildPhases = (
+				0728A10F261B3E090A8EBC63 /* [CP] Check Pods Manifest.lock */,
 				F21B3BAD2B80487400E956DF /* Sources */,
 				F21B3BAE2B80487400E956DF /* Frameworks */,
 				F21B3BAF2B80487400E956DF /* Resources */,
+				DEF1BFB1B1904E390B64DCEB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F21B3BE12B80487600E956DF /* Build configuration list for PBXNativeTarget "RavenTestTests" */;
 			buildPhases = (
+				208D1404975BF89B18C6AA6F /* [CP] Check Pods Manifest.lock */,
 				F21B3BC62B80487600E956DF /* Sources */,
 				F21B3BC72B80487600E956DF /* Frameworks */,
 				F21B3BC82B80487600E956DF /* Resources */,
@@ -189,9 +243,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F21B3BE42B80487600E956DF /* Build configuration list for PBXNativeTarget "RavenTestUITests" */;
 			buildPhases = (
+				251DDA994CDE6E4D25CC7D1A /* [CP] Check Pods Manifest.lock */,
 				F21B3BD02B80487600E956DF /* Sources */,
 				F21B3BD12B80487600E956DF /* Frameworks */,
 				F21B3BD22B80487600E956DF /* Resources */,
+				B08DD1899C2717A10DB3A7D3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -273,6 +329,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0728A10F261B3E090A8EBC63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RavenTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		208D1404975BF89B18C6AA6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RavenTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		251DDA994CDE6E4D25CC7D1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RavenTest-RavenTestUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B08DD1899C2717A10DB3A7D3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTest-RavenTestUITests/Pods-RavenTest-RavenTestUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTest-RavenTestUITests/Pods-RavenTest-RavenTestUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RavenTest-RavenTestUITests/Pods-RavenTest-RavenTestUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEF1BFB1B1904E390B64DCEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTest/Pods-RavenTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTest/Pods-RavenTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RavenTest/Pods-RavenTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F21B3BAD2B80487400E956DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -285,6 +444,7 @@
 				F21B3BF12B804F0C00E956DF /* HomeInteractor.swift in Sources */,
 				F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */,
 				F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */,
+				F21B3BF62B80519C00E956DF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +608,7 @@
 		};
 		F21B3BDF2B80487600E956DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CD72028A4BBDCED252BA934 /* Pods-RavenTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -476,6 +637,7 @@
 		};
 		F21B3BE02B80487600E956DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81E2BC8BAC2365A374491965 /* Pods-RavenTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -504,6 +666,7 @@
 		};
 		F21B3BE22B80487600E956DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA0D1A4235189DD250E7D3D8 /* Pods-RavenTestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -524,6 +687,7 @@
 		};
 		F21B3BE32B80487600E956DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CCF091C4464BC7736070AD0 /* Pods-RavenTestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +708,7 @@
 		};
 		F21B3BE52B80487600E956DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2F5F30038DCA1E8FCCC06B5 /* Pods-RavenTest-RavenTestUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -562,6 +727,7 @@
 		};
 		F21B3BE62B80487600E956DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54F912DE230DCABB3D6F15DF /* Pods-RavenTest-RavenTestUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
