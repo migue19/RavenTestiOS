@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F21B3BB52B80487400E956DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BB42B80487400E956DF /* AppDelegate.swift */; };
-		F21B3BB72B80487400E956DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BB62B80487400E956DF /* SceneDelegate.swift */; };
 		F21B3BB92B80487400E956DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BB82B80487400E956DF /* ViewController.swift */; };
-		F21B3BBC2B80487400E956DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BBA2B80487400E956DF /* Main.storyboard */; };
 		F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BBD2B80487400E956DF /* RavenTest.xcdatamodeld */; };
 		F21B3BC12B80487500E956DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BC02B80487500E956DF /* Assets.xcassets */; };
 		F21B3BC42B80487500E956DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BC22B80487500E956DF /* LaunchScreen.storyboard */; };
@@ -39,9 +37,7 @@
 /* Begin PBXFileReference section */
 		F21B3BB12B80487400E956DF /* RavenTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21B3BB42B80487400E956DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F21B3BB62B80487400E956DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F21B3BB82B80487400E956DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F21B3BBB2B80487400E956DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F21B3BBE2B80487400E956DF /* RavenTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RavenTest.xcdatamodel; sourceTree = "<group>"; };
 		F21B3BC02B80487500E956DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F21B3BC32B80487500E956DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,9 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				F21B3BB42B80487400E956DF /* AppDelegate.swift */,
-				F21B3BB62B80487400E956DF /* SceneDelegate.swift */,
 				F21B3BB82B80487400E956DF /* ViewController.swift */,
-				F21B3BBA2B80487400E956DF /* Main.storyboard */,
 				F21B3BC02B80487500E956DF /* Assets.xcassets */,
 				F21B3BC22B80487500E956DF /* LaunchScreen.storyboard */,
 				F21B3BC52B80487500E956DF /* Info.plist */,
@@ -236,7 +230,6 @@
 			files = (
 				F21B3BC42B80487500E956DF /* LaunchScreen.storyboard in Resources */,
 				F21B3BC12B80487500E956DF /* Assets.xcassets in Resources */,
-				F21B3BBC2B80487400E956DF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +257,6 @@
 				F21B3BB92B80487400E956DF /* ViewController.swift in Sources */,
 				F21B3BB52B80487400E956DF /* AppDelegate.swift in Sources */,
 				F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */,
-				F21B3BB72B80487400E956DF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F21B3BBA2B80487400E956DF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F21B3BBB2B80487400E956DF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F21B3BC22B80487500E956DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -445,8 +429,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RavenTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -473,8 +457,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RavenTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
