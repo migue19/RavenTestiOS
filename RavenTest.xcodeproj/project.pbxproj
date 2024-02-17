@@ -24,6 +24,11 @@
 		F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEC2B804F0C00E956DF /* HomeProtocol.swift */; };
 		F21B3BF32B804F0C00E956DF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BED2B804F0C00E956DF /* HomeVC.swift */; };
 		F21B3BF62B80519C00E956DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BF52B80519C00E956DF /* Constants.swift */; };
+		F21B3BFC2B8054CE00E956DF /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BF82B8054CE00E956DF /* Media.swift */; };
+		F21B3BFD2B8054CE00E956DF /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BF92B8054CE00E956DF /* Articles.swift */; };
+		F21B3BFE2B8054CE00E956DF /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BFA2B8054CE00E956DF /* Results.swift */; };
+		F21B3BFF2B8054CE00E956DF /* MediaMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BFB2B8054CE00E956DF /* MediaMetaData.swift */; };
+		F21B3C022B8058FE00E956DF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C012B8058FE00E956DF /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		F21B3BEC2B804F0C00E956DF /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		F21B3BED2B804F0C00E956DF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		F21B3BF52B80519C00E956DF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F21B3BF82B8054CE00E956DF /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		F21B3BF92B8054CE00E956DF /* Articles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
+		F21B3BFA2B8054CE00E956DF /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		F21B3BFB2B8054CE00E956DF /* MediaMetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaMetaData.swift; sourceTree = "<group>"; };
+		F21B3C012B8058FE00E956DF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				F21B3BB42B80487400E956DF /* AppDelegate.swift */,
+				F21B3C002B8058EA00E956DF /* Utils */,
+				F21B3BF72B8054B600E956DF /* Models */,
 				F21B3BF42B80517F00E956DF /* Constants */,
 				F21B3BE72B804ECB00E956DF /* Home */,
 				F21B3BC02B80487500E956DF /* Assets.xcassets */,
@@ -196,6 +208,25 @@
 				F21B3BF52B80519C00E956DF /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F21B3BF72B8054B600E956DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F21B3BF92B8054CE00E956DF /* Articles.swift */,
+				F21B3BFB2B8054CE00E956DF /* MediaMetaData.swift */,
+				F21B3BF82B8054CE00E956DF /* Media.swift */,
+				F21B3BFA2B8054CE00E956DF /* Results.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F21B3C002B8058EA00E956DF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F21B3C012B8058FE00E956DF /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,10 +469,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F21B3BEF2B804F0C00E956DF /* HomePresenter.swift in Sources */,
+				F21B3BFF2B8054CE00E956DF /* MediaMetaData.swift in Sources */,
 				F21B3BF32B804F0C00E956DF /* HomeVC.swift in Sources */,
 				F21B3BF02B804F0C00E956DF /* HomeRouter.swift in Sources */,
+				F21B3BFD2B8054CE00E956DF /* Articles.swift in Sources */,
+				F21B3C022B8058FE00E956DF /* Utils.swift in Sources */,
 				F21B3BB52B80487400E956DF /* AppDelegate.swift in Sources */,
 				F21B3BF12B804F0C00E956DF /* HomeInteractor.swift in Sources */,
+				F21B3BFC2B8054CE00E956DF /* Media.swift in Sources */,
+				F21B3BFE2B8054CE00E956DF /* Results.swift in Sources */,
 				F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */,
 				F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */,
 				F21B3BF62B80519C00E956DF /* Constants.swift in Sources */,

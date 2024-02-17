@@ -14,7 +14,11 @@ extension HomeInteractor: HomeInteractorInputProtocol {
         let connectionLayer = ConnectionLayer()
         let url = NYTimesApi.base
         connectionLayer.connectionRequest(url: url, method: .get, data: nil) { data, error in
-            print(data ?? "")
+            guard let data = data else {
+                return
+            }
+            let entity = Utils.decode(Articles.self, from: data, serviceName: "Articles")
+            print(entity)
         }
     }
 }
