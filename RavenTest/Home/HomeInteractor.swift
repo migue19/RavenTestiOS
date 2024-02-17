@@ -11,14 +11,16 @@ class HomeInteractor {
 }
 extension HomeInteractor: HomeInteractorInputProtocol {
     func requestData() {
-        let connectionLayer = ConnectionLayer()
+        let connectionLayer = ConnectionLayer(isDebug: false)
         let url = NYTimesApi.base
         connectionLayer.connectionRequest(url: url, method: .get, data: nil) { data, error in
             guard let data = data else {
                 return
             }
-            let entity = Utils.decode(Articles.self, from: data, serviceName: "Articles")
-            print(entity)
+            guard let entity = Utils.decode(Articles.self, from: data, serviceName: "Articles"), let results = entity.results else {
+                return
+            }
+            self.presenter?.sendData(data: results)
         }
     }
 }

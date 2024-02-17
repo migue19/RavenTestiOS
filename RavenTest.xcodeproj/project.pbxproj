@@ -29,6 +29,8 @@
 		F21B3BFE2B8054CE00E956DF /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BFA2B8054CE00E956DF /* Results.swift */; };
 		F21B3BFF2B8054CE00E956DF /* MediaMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BFB2B8054CE00E956DF /* MediaMetaData.swift */; };
 		F21B3C022B8058FE00E956DF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C012B8058FE00E956DF /* Utils.swift */; };
+		F21B3C052B806A3400E956DF /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C042B806A3400E956DF /* Protocols.swift */; };
+		F21B3C082B806ABC00E956DF /* TitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C072B806ABC00E956DF /* TitleViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		F21B3BFA2B8054CE00E956DF /* Results.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		F21B3BFB2B8054CE00E956DF /* MediaMetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaMetaData.swift; sourceTree = "<group>"; };
 		F21B3C012B8058FE00E956DF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		F21B3C042B806A3400E956DF /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		F21B3C072B806ABC00E956DF /* TitleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				F21B3BB42B80487400E956DF /* AppDelegate.swift */,
+				F21B3C032B806A1100E956DF /* Protocols */,
 				F21B3C002B8058EA00E956DF /* Utils */,
 				F21B3BF72B8054B600E956DF /* Models */,
 				F21B3BF42B80517F00E956DF /* Constants */,
@@ -192,6 +197,7 @@
 		F21B3BE72B804ECB00E956DF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F21B3C062B806ABC00E956DF /* Cells */,
 				F21B3BE82B804F0C00E956DF /* HomeVC.xib */,
 				F21B3BE92B804F0C00E956DF /* HomePresenter.swift */,
 				F21B3BEA2B804F0C00E956DF /* HomeRouter.swift */,
@@ -227,6 +233,22 @@
 				F21B3C012B8058FE00E956DF /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		F21B3C032B806A1100E956DF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F21B3C042B806A3400E956DF /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F21B3C062B806ABC00E956DF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F21B3C072B806ABC00E956DF /* TitleViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,9 +496,11 @@
 				F21B3BF02B804F0C00E956DF /* HomeRouter.swift in Sources */,
 				F21B3BFD2B8054CE00E956DF /* Articles.swift in Sources */,
 				F21B3C022B8058FE00E956DF /* Utils.swift in Sources */,
+				F21B3C082B806ABC00E956DF /* TitleViewCell.swift in Sources */,
 				F21B3BB52B80487400E956DF /* AppDelegate.swift in Sources */,
 				F21B3BF12B804F0C00E956DF /* HomeInteractor.swift in Sources */,
 				F21B3BFC2B8054CE00E956DF /* Media.swift in Sources */,
+				F21B3C052B806A3400E956DF /* Protocols.swift in Sources */,
 				F21B3BFE2B8054CE00E956DF /* Results.swift in Sources */,
 				F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */,
 				F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */,

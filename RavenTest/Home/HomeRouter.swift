@@ -22,4 +22,7 @@ class HomeRouter {
     }
 }
 extension HomeRouter: HomeRouterProtocol {
+    func showArticle(data: ResultsModel) {
+        print(data)
+    }
 }
