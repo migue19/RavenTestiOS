@@ -14,6 +14,13 @@ class DetailPresenter {
     var router: DetailRouterProtocol?
 }
 extension DetailPresenter: DetailPresenterProtocol {
+    func getData() {
+        interactor?.requestData()
+    }
 }
 extension DetailPresenter: DetailInteractorOutputProtocol {
+    func sendData(data: ResultsModel) {
+        let data = DetailEntity(title: data.title ?? "", author: data.byline ?? "", date: data.published_date ?? "", abstract: data.abstract ?? "")
+        view?.showData(data: data)
+    }
 }

@@ -23,7 +23,7 @@ class HomeRouter {
 }
 extension HomeRouter: HomeRouterProtocol {
     func showArticle(data: ResultsModel) {
-        let detail = DetailRouter()
+        let detail = DetailRouter(data: data)
         self.view.navigationController?.pushViewController(detail.view, animated: true)
     }
 }

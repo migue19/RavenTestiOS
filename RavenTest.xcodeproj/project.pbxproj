@@ -37,6 +37,7 @@
 		F21B3C142B8118B400E956DF /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C0E2B8118B400E956DF /* DetailInteractor.swift */; };
 		F21B3C152B8118B400E956DF /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C0F2B8118B400E956DF /* DetailProtocol.swift */; };
 		F21B3C162B8118B400E956DF /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C102B8118B400E956DF /* DetailVC.swift */; };
+		F21B3C182B8122AB00E956DF /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C172B8122AB00E956DF /* DetailEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		F21B3C0E2B8118B400E956DF /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		F21B3C0F2B8118B400E956DF /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
 		F21B3C102B8118B400E956DF /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		F21B3C172B8122AB00E956DF /* DetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				F21B3C0E2B8118B400E956DF /* DetailInteractor.swift */,
 				F21B3C0F2B8118B400E956DF /* DetailProtocol.swift */,
 				F21B3C102B8118B400E956DF /* DetailVC.swift */,
+				F21B3C172B8122AB00E956DF /* DetailEntity.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F21B3BEF2B804F0C00E956DF /* HomePresenter.swift in Sources */,
+				F21B3C182B8122AB00E956DF /* DetailEntity.swift in Sources */,
 				F21B3BFF2B8054CE00E956DF /* MediaMetaData.swift in Sources */,
 				F21B3BF32B804F0C00E956DF /* HomeVC.swift in Sources */,
 				F21B3C142B8118B400E956DF /* DetailInteractor.swift in Sources */,
@@ -722,6 +726,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -751,6 +756,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

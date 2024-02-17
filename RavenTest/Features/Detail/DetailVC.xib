@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -10,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVC" customModule="RavenTest" customModuleProvider="target">
             <connections>
+                <outlet property="abstractLabel" destination="gix-RM-cP7" id="QY9-en-BpB"/>
+                <outlet property="authorLabel" destination="tdE-SL-S3T" id="xsO-FZ-v7e"/>
+                <outlet property="dateLabel" destination="cbu-2y-pTt" id="flh-Ad-gdY"/>
+                <outlet property="titleLabel" destination="slX-cd-RW9" id="Xsb-wX-Fs9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why I Am Now Deeply Worried for America" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slX-cd-RW9">
-                    <rect key="frame" x="16" y="164" width="361" height="67.666666666666686"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                    <rect key="frame" x="16" y="75" width="361" height="54.333333333333343"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="afO-Ft-dUL">
-                    <rect key="frame" x="16" y="281.66666666666669" width="361" height="174"/>
+                    <rect key="frame" x="16" y="179.33333333333337" width="361" height="174"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Autor:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgJ-f8-h7o">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="20.333333333333332"/>
@@ -40,25 +45,25 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha de publicacion:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyX-qT-tBj">
-                            <rect key="frame" x="0.0" y="52.666666666666629" width="361" height="20.333333333333329"/>
+                            <rect key="frame" x="0.0" y="52.666666666666657" width="361" height="20.333333333333329"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2024-02-12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-2y-pTt">
-                            <rect key="frame" x="0.0" y="79" width="361" height="20.333333333333329"/>
+                            <rect key="frame" x="0.0" y="78.999999999999972" width="361" height="20.333333333333329"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contenido" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ax-B7-V2z">
-                            <rect key="frame" x="0.0" y="105.33333333333331" width="361" height="20.333333333333329"/>
+                            <rect key="frame" x="0.0" y="105.33333333333334" width="361" height="20.333333333333329"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The frenzy over President Biden’s age is a very bad sign." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gix-RM-cP7">
-                            <rect key="frame" x="0.0" y="131.66666666666663" width="361" height="42.333333333333343"/>
+                            <rect key="frame" x="0.0" y="131.66666666666666" width="361" height="42.333333333333343"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -70,7 +75,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="slX-cd-RW9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="JYH-aw-6LM"/>
-                <constraint firstItem="slX-cd-RW9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="105" id="SgB-dD-FkN"/>
+                <constraint firstItem="slX-cd-RW9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="SgB-dD-FkN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="slX-cd-RW9" secondAttribute="trailing" constant="16" id="cb5-9C-1Ty"/>
                 <constraint firstItem="afO-Ft-dUL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="gcJ-gV-cjX"/>
                 <constraint firstItem="afO-Ft-dUL" firstAttribute="top" secondItem="slX-cd-RW9" secondAttribute="bottom" constant="50" id="mZe-1G-6ab"/>

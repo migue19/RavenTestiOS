@@ -8,6 +8,13 @@
 
 class DetailInteractor {
     var presenter: DetailInteractorOutputProtocol?
+    var data: ResultsModel?
 }
 extension DetailInteractor: DetailInteractorInputProtocol {
+    func requestData() {
+        guard let data = data else {
+            return
+        }
+        presenter?.sendData(data: data)
+    }
 }

@@ -5,7 +5,6 @@
 //  Created by Miguel Mexicano Herrera on 17/02/24.
 //  
 //
-
 class DetailRouter {
     var view: DetailVC
     private var presenter: DetailPresenter
@@ -19,6 +18,10 @@ class DetailRouter {
         presenter.interactor = self.interactor
         presenter.router = self
         interactor.presenter = self.presenter
+    }
+    convenience init(data: ResultsModel) {
+        self.init()
+        interactor.data = data
     }
 }
 extension DetailRouter: DetailRouterProtocol {
