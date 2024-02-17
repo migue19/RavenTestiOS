@@ -19,6 +19,7 @@ extension HomePresenter: HomePresenterProtocol {
         router?.showArticle(data: data[index])
     }
     func getData() {
+        view?.showHUD()
         interactor?.requestData()
     }
 }
@@ -26,7 +27,10 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     func sendData(data: [ResultsModel]) {
         self.data = data
         let titles = data.compactMap({$0.title})
-        view?.showData(data: titles)
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideHUD()
+            self?.view?.showData(data: titles)
+        }
     }
     
 }

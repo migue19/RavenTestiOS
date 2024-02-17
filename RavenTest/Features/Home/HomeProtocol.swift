@@ -8,7 +8,7 @@
 
 /// Protocolo que define los métodos y atributos para el view de Home
 /// PRESENTER -> VIEW
-protocol HomeViewProtocol {
+protocol HomeViewProtocol: GeneralView {
     func showData(data: [String])
 }
 /// Protocolo que define los métodos y atributos para el routing de Home

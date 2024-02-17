@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class HomeVC: UIViewController {
     var presenter: HomePresenterProtocol?
+    var progress: ProgressView?
     lazy var tableView: UITableView = {
         var tableView: UITableView = UITableView()
         tableView.delegate = self
@@ -31,22 +32,26 @@ class HomeVC: UIViewController {
 /// Protocolo para recibir datos del presenter.
 extension HomeVC: HomeViewProtocol {
     func showData(data: [String]) {
-        DispatchQueue.main.async { [weak self] in
-            self?.dataSources = data
-            self?.tableView.reloadData()
-        }
+        self.dataSources = data
+        self.tableView.reloadData()
+    }
+    func showHUD() {
+        progress?.startProgressView()
+    }
+    func hideHUD() {
+        progress?.stopProgressView()
     }
 }
-extension HomeVC: GeneralView {
+extension HomeVC: CreateView {
     func setupView() {
         self.title = "Home"
+        progress = ProgressView(inView: self.view)
         addSubviews()
         setupConstraints()
     }
     func addSubviews() {
         self.view.addSubview(tableView)
     }
-    
     func setupConstraints() {
         tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
         tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true

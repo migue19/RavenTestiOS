@@ -26,7 +26,7 @@ class TitleViewCell: UITableViewCell {
         titleLabel.text = title
     }
 }
-extension TitleViewCell: GeneralView {
+extension TitleViewCell: CreateView {
     func setupView() {
         addSubviews()
         setupConstraints()

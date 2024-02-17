@@ -25,7 +25,7 @@ class DetailVC: UIViewController {
         presenter?.getData()
     }
 }
-extension DetailVC: GeneralView {
+extension DetailVC: CreateView {
     func setupView() {
         self.title = "Detalle"
         addSubviews()

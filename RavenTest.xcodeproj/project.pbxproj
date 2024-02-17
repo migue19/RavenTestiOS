@@ -38,8 +38,8 @@
 		F21B3C152B8118B400E956DF /* DetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C0F2B8118B400E956DF /* DetailProtocol.swift */; };
 		F21B3C162B8118B400E956DF /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C102B8118B400E956DF /* DetailVC.swift */; };
 		F21B3C182B8122AB00E956DF /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C172B8122AB00E956DF /* DetailEntity.swift */; };
-		F21B3C1C2B812B7400E956DF /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = F21B3C1A2B812B7300E956DF /* loader.json */; };
-		F21B3C1D2B812B7400E956DF /* loader2.json in Resources */ = {isa = PBXBuildFile; fileRef = F21B3C1B2B812B7300E956DF /* loader2.json */; };
+		F21B3C1F2B812CDE00E956DF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C1E2B812CDE00E956DF /* ProgressView.swift */; };
+		F21B3C212B81353100E956DF /* news-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = F21B3C202B81353100E956DF /* news-loader.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +101,8 @@
 		F21B3C0F2B8118B400E956DF /* DetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocol.swift; sourceTree = "<group>"; };
 		F21B3C102B8118B400E956DF /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		F21B3C172B8122AB00E956DF /* DetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntity.swift; sourceTree = "<group>"; };
-		F21B3C1A2B812B7300E956DF /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
-		F21B3C1B2B812B7300E956DF /* loader2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader2.json; sourceTree = "<group>"; };
+		F21B3C1E2B812CDE00E956DF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		F21B3C202B81353100E956DF /* news-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "news-loader.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				F21B3BB42B80487400E956DF /* AppDelegate.swift */,
+				F21B3C222B81359800E956DF /* Commons */,
 				F21B3C192B812B4600E956DF /* Animations */,
 				F21B3C032B806A1100E956DF /* Protocols */,
 				F21B3C002B8058EA00E956DF /* Utils */,
@@ -296,10 +297,17 @@
 		F21B3C192B812B4600E956DF /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				F21B3C1A2B812B7300E956DF /* loader.json */,
-				F21B3C1B2B812B7300E956DF /* loader2.json */,
+				F21B3C202B81353100E956DF /* news-loader.json */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		F21B3C222B81359800E956DF /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				F21B3C1E2B812CDE00E956DF /* ProgressView.swift */,
+			);
+			path = Commons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,12 +419,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F21B3C212B81353100E956DF /* news-loader.json in Resources */,
 				F21B3BC42B80487500E956DF /* LaunchScreen.storyboard in Resources */,
 				F21B3C112B8118B400E956DF /* DetailVC.xib in Resources */,
 				F21B3BEE2B804F0C00E956DF /* HomeVC.xib in Resources */,
-				F21B3C1D2B812B7400E956DF /* loader2.json in Resources */,
 				F21B3BC12B80487500E956DF /* Assets.xcassets in Resources */,
-				F21B3C1C2B812B7400E956DF /* loader.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +572,7 @@
 				F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */,
 				F21B3C152B8118B400E956DF /* DetailProtocol.swift in Sources */,
 				F21B3BF62B80519C00E956DF /* Constants.swift in Sources */,
+				F21B3C1F2B812CDE00E956DF /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
