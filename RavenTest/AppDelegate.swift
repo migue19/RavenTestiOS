@@ -10,8 +10,14 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let home = HomeRouter()
+        let navigationController = UINavigationController(rootViewController: home.view)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         return true
     }
     // MARK: - Core Data stack

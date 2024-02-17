@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		F21B3BB52B80487400E956DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BB42B80487400E956DF /* AppDelegate.swift */; };
-		F21B3BB92B80487400E956DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BB82B80487400E956DF /* ViewController.swift */; };
 		F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BBD2B80487400E956DF /* RavenTest.xcdatamodeld */; };
 		F21B3BC12B80487500E956DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BC02B80487500E956DF /* Assets.xcassets */; };
 		F21B3BC42B80487500E956DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BC22B80487500E956DF /* LaunchScreen.storyboard */; };
 		F21B3BCF2B80487600E956DF /* RavenTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BCE2B80487600E956DF /* RavenTestTests.swift */; };
 		F21B3BD92B80487600E956DF /* RavenTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BD82B80487600E956DF /* RavenTestUITests.swift */; };
 		F21B3BDB2B80487600E956DF /* RavenTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BDA2B80487600E956DF /* RavenTestUITestsLaunchTests.swift */; };
+		F21B3BEE2B804F0C00E956DF /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F21B3BE82B804F0C00E956DF /* HomeVC.xib */; };
+		F21B3BEF2B804F0C00E956DF /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BE92B804F0C00E956DF /* HomePresenter.swift */; };
+		F21B3BF02B804F0C00E956DF /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEA2B804F0C00E956DF /* HomeRouter.swift */; };
+		F21B3BF12B804F0C00E956DF /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */; };
+		F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BEC2B804F0C00E956DF /* HomeProtocol.swift */; };
+		F21B3BF32B804F0C00E956DF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3BED2B804F0C00E956DF /* HomeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +42,6 @@
 /* Begin PBXFileReference section */
 		F21B3BB12B80487400E956DF /* RavenTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21B3BB42B80487400E956DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F21B3BB82B80487400E956DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F21B3BBE2B80487400E956DF /* RavenTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RavenTest.xcdatamodel; sourceTree = "<group>"; };
 		F21B3BC02B80487500E956DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F21B3BC32B80487500E956DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,12 @@
 		F21B3BD42B80487600E956DF /* RavenTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RavenTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F21B3BD82B80487600E956DF /* RavenTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RavenTestUITests.swift; sourceTree = "<group>"; };
 		F21B3BDA2B80487600E956DF /* RavenTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RavenTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F21B3BE82B804F0C00E956DF /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
+		F21B3BE92B804F0C00E956DF /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		F21B3BEA2B804F0C00E956DF /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		F21B3BEC2B804F0C00E956DF /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
+		F21B3BED2B804F0C00E956DF /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				F21B3BB42B80487400E956DF /* AppDelegate.swift */,
-				F21B3BB82B80487400E956DF /* ViewController.swift */,
+				F21B3BE72B804ECB00E956DF /* Home */,
 				F21B3BC02B80487500E956DF /* Assets.xcassets */,
 				F21B3BC22B80487500E956DF /* LaunchScreen.storyboard */,
 				F21B3BC52B80487500E956DF /* Info.plist */,
@@ -122,6 +132,19 @@
 				F21B3BDA2B80487600E956DF /* RavenTestUITestsLaunchTests.swift */,
 			);
 			path = RavenTestUITests;
+			sourceTree = "<group>";
+		};
+		F21B3BE72B804ECB00E956DF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F21B3BE82B804F0C00E956DF /* HomeVC.xib */,
+				F21B3BE92B804F0C00E956DF /* HomePresenter.swift */,
+				F21B3BEA2B804F0C00E956DF /* HomeRouter.swift */,
+				F21B3BEB2B804F0C00E956DF /* HomeInteractor.swift */,
+				F21B3BEC2B804F0C00E956DF /* HomeProtocol.swift */,
+				F21B3BED2B804F0C00E956DF /* HomeVC.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F21B3BC42B80487500E956DF /* LaunchScreen.storyboard in Resources */,
+				F21B3BEE2B804F0C00E956DF /* HomeVC.xib in Resources */,
 				F21B3BC12B80487500E956DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,8 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F21B3BB92B80487400E956DF /* ViewController.swift in Sources */,
+				F21B3BEF2B804F0C00E956DF /* HomePresenter.swift in Sources */,
+				F21B3BF32B804F0C00E956DF /* HomeVC.swift in Sources */,
+				F21B3BF02B804F0C00E956DF /* HomeRouter.swift in Sources */,
 				F21B3BB52B80487400E956DF /* AppDelegate.swift in Sources */,
+				F21B3BF12B804F0C00E956DF /* HomeInteractor.swift in Sources */,
+				F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */,
 				F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
