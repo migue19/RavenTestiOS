@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class HomeVC: UIViewController {
     var presenter: HomePresenterProtocol?
-    var progress: ProgressView?
+    
     lazy var tableView: UITableView = {
         var tableView: UITableView = UITableView()
         tableView.delegate = self
@@ -26,7 +26,11 @@ class HomeVC: UIViewController {
         getData()
     }
     func getData() {
-        presenter?.getData()
+        if Reachability.isConnectedToNetwork() {
+            presenter?.getData()
+        } else {
+            print("No hay red")
+        }
     }
 }
 /// Protocolo para recibir datos del presenter.
@@ -35,17 +39,10 @@ extension HomeVC: HomeViewProtocol {
         self.dataSources = data
         self.tableView.reloadData()
     }
-    func showHUD() {
-        progress?.startProgressView()
-    }
-    func hideHUD() {
-        progress?.stopProgressView()
-    }
 }
 extension HomeVC: CreateView {
     func setupView() {
         self.title = "Home"
-        progress = ProgressView(inView: self.view)
         addSubviews()
         setupConstraints()
     }

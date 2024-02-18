@@ -39,6 +39,8 @@
 		F21B3C182B8122AB00E956DF /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C172B8122AB00E956DF /* DetailEntity.swift */; };
 		F21B3C1F2B812CDE00E956DF /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B3C1E2B812CDE00E956DF /* ProgressView.swift */; };
 		F21B3C212B81353100E956DF /* news-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = F21B3C202B81353100E956DF /* news-loader.json */; };
+		F22575062B82A72600BD902C /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22575052B82A72600BD902C /* Reachability.swift */; };
+		F22575092B82AF5400BD902C /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22575082B82AF5400BD902C /* BaseController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		F21B3C172B8122AB00E956DF /* DetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntity.swift; sourceTree = "<group>"; };
 		F21B3C1E2B812CDE00E956DF /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F21B3C202B81353100E956DF /* news-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "news-loader.json"; sourceTree = "<group>"; };
+		F22575052B82A72600BD902C /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F22575082B82AF5400BD902C /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				F21B3BB42B80487400E956DF /* AppDelegate.swift */,
+				F22575072B82AF4400BD902C /* Base */,
 				F21B3C222B81359800E956DF /* Commons */,
 				F21B3C192B812B4600E956DF /* Animations */,
 				F21B3C032B806A1100E956DF /* Protocols */,
@@ -303,8 +308,17 @@
 			isa = PBXGroup;
 			children = (
 				F21B3C1E2B812CDE00E956DF /* ProgressView.swift */,
+				F22575052B82A72600BD902C /* Reachability.swift */,
 			);
 			path = Commons;
+			sourceTree = "<group>";
+		};
+		F22575072B82AF4400BD902C /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F22575082B82AF5400BD902C /* BaseController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,12 +576,14 @@
 				F21B3BFC2B8054CE00E956DF /* Media.swift in Sources */,
 				F21B3C052B806A3400E956DF /* Protocols.swift in Sources */,
 				F21B3C122B8118B400E956DF /* DetailPresenter.swift in Sources */,
+				F22575062B82A72600BD902C /* Reachability.swift in Sources */,
 				F21B3BFE2B8054CE00E956DF /* Results.swift in Sources */,
 				F21B3BF22B804F0C00E956DF /* HomeProtocol.swift in Sources */,
 				F21B3C132B8118B400E956DF /* DetailRouter.swift in Sources */,
 				F21B3BBF2B80487400E956DF /* RavenTest.xcdatamodeld in Sources */,
 				F21B3C152B8118B400E956DF /* DetailProtocol.swift in Sources */,
 				F21B3BF62B80519C00E956DF /* Constants.swift in Sources */,
+				F22575092B82AF5400BD902C /* BaseController.swift in Sources */,
 				F21B3C1F2B812CDE00E956DF /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
