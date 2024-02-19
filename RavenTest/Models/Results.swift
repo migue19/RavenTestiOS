@@ -82,5 +82,9 @@ struct ResultsModel: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(uri, forKey: .uri)
+        try container.encode(title, forKey: .title)
+        try container.encode(byline, forKey: .byline)
+        try container.encode(published_date, forKey: .published_date)
+        try container.encode(abstract, forKey: .abstract)
     }
 }

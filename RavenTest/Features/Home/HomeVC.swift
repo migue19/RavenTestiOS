@@ -52,7 +52,7 @@ extension HomeVC: HomeViewProtocol {
 }
 extension HomeVC: CreateView {
     func setupView() {
-        self.title = "Home"
+        self.title = "Articulos"
         addSubviews()
         setupConstraints()
     }

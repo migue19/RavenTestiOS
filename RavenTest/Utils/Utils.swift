@@ -26,3 +26,27 @@ struct Utils {
         return nil
     }
 }
+enum PersistenceKey: String {
+    case articles = "Articles"
+}
+struct Persistence {
+    static func saveArticles(data: [ResultsModel]) {
+        let encoder = JSONEncoder()
+        let userDefault = UserDefaults.standard
+        do {
+            let data = try encoder.encode(data)
+            userDefault.set(data, forKey: PersistenceKey.articles.rawValue)
+        } catch {
+            print("error \(error)")
+        }
+    }
+    static func getArticles() -> [ResultsModel]? {
+        let userDefault = UserDefaults.standard
+        if let data = userDefault.data(forKey: PersistenceKey.articles.rawValue) {
+            let decoder = JSONDecoder()
+            let user = try? decoder.decode([ResultsModel].self, from: data)
+            return user
+        }
+        return nil
+    }
+}

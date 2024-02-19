@@ -14,7 +14,11 @@ extension HomeInteractor: HomeInteractorInputProtocol {
         if Reachability.isConnectedToNetwork() {
             getEmailedNews()
         } else {
-            self.presenter?.sendErrorMessage(message: "No Hay Internet")
+            if let data = Persistence.getArticles() {
+                self.presenter?.showSaveData(data: data)
+            } else {
+                self.presenter?.sendErrorMessage(message: "No Hay Internet")
+            }
         }
     }
     func getEmailedNews() {
@@ -36,6 +40,7 @@ extension HomeInteractor: HomeInteractorInputProtocol {
             guard let entity = Utils.decode(Articles.self, from: data, serviceName: "EmailedNews"), let results = entity.results else {
                 return
             }
+            Persistence.saveArticles(data: results)
             self.presenter?.sendData(data: results)
         }
     }

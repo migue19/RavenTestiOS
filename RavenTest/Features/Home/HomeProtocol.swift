@@ -33,4 +33,5 @@ protocol HomeInteractorInputProtocol {
 protocol HomeInteractorOutputProtocol {
     func sendData(data: [ResultsModel])
     func sendErrorMessage(message: String)
+    func showSaveData(data: [ResultsModel])
 }

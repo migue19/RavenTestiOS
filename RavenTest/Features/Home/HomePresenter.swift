@@ -24,6 +24,16 @@ extension HomePresenter: HomePresenterProtocol {
     }
 }
 extension HomePresenter: HomeInteractorOutputProtocol {
+    private func processData(data: [ResultsModel]) {
+        self.data = data
+        let titles = data.compactMap({$0.title})
+        self.view?.hideHUD()
+        self.view?.showData(data: titles)
+    }
+    func showSaveData(data: [ResultsModel]) {
+        processData(data: data)
+        self.view?.showMessage(message: "Datos Guardados", type: .success)
+    }
     func sendErrorMessage(message: String) {
         DispatchQueue.main.async { [weak self] in
             self?.view?.hideHUD()
@@ -32,11 +42,8 @@ extension HomePresenter: HomeInteractorOutputProtocol {
         }
     }
     func sendData(data: [ResultsModel]) {
-        self.data = data
-        let titles = data.compactMap({$0.title})
         DispatchQueue.main.async { [weak self] in
-            self?.view?.hideHUD()
-            self?.view?.showData(data: titles)
+            self?.processData(data: data)
         }
     }
     
