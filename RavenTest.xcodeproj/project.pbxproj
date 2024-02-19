@@ -44,6 +44,7 @@
 		F225750B2B82BB6E00BD902C /* ErrorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225750A2B82BB6E00BD902C /* ErrorViewCell.swift */; };
 		F225750E2B82E09E00BD902C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225750D2B82E09E00BD902C /* UITableView.swift */; };
 		F22575102B82E0D800BD902C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F225750F2B82E0D800BD902C /* UIView.swift */; };
+		F22575122B82E81A00BD902C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22575112B82E81A00BD902C /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		F225750A2B82BB6E00BD902C /* ErrorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewCell.swift; sourceTree = "<group>"; };
 		F225750D2B82E09E00BD902C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		F225750F2B82E0D800BD902C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		F22575112B82E81A00BD902C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +336,7 @@
 			children = (
 				F225750D2B82E09E00BD902C /* UITableView.swift */,
 				F225750F2B82E0D800BD902C /* UIView.swift */,
+				F22575112B82E81A00BD902C /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F21B3BEF2B804F0C00E956DF /* HomePresenter.swift in Sources */,
+				F22575122B82E81A00BD902C /* UIColor.swift in Sources */,
 				F21B3C182B8122AB00E956DF /* DetailEntity.swift in Sources */,
 				F21B3BFF2B8054CE00E956DF /* MediaMetaData.swift in Sources */,
 				F21B3BF32B804F0C00E956DF /* HomeVC.swift in Sources */,

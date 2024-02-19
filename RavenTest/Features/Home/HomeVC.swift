@@ -32,6 +32,10 @@ class HomeVC: BaseController {
     func getData() {
         presenter?.getData()
     }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        tableView.reloadData()
+    }
 }
 /// Protocolo para recibir datos del presenter.
 extension HomeVC: HomeViewProtocol {
