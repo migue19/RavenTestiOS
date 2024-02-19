@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 class HomeVC: BaseController {
+    let refreshControl = UIRefreshControl()
     var presenter: HomePresenterProtocol?
     var isEmptyData = true
     let noDataText = "No Hay Datos\npara mostrar"
@@ -29,12 +30,15 @@ class HomeVC: BaseController {
         setupView()
         getData()
     }
-    func getData() {
-        presenter?.getData()
-    }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         tableView.reloadData()
+    }
+    func getData() {
+        presenter?.getData()
+    }
+    @objc func refresh(_ sender: AnyObject) {
+       getData()
     }
 }
 /// Protocolo para recibir datos del presenter.
@@ -42,19 +46,27 @@ extension HomeVC: HomeViewProtocol {
     func showData(data: [String]) {
         self.isEmptyData = data.count == 0
         self.dataSources = isEmptyData ? [noDataText] : data
+        refreshControl.endRefreshing()
         self.tableView.reloadData()
     }
     func showNoData() {
         self.isEmptyData = true
         self.dataSources = [noDataText]
+        refreshControl.endRefreshing()
         self.tableView.reloadData()
     }
 }
 extension HomeVC: CreateView {
+    func setupPullToRefresh() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Actualizar Datos")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
     func setupView() {
         self.title = "Articulos"
         addSubviews()
         setupConstraints()
+        setupPullToRefresh()
     }
     func addSubviews() {
         self.view.addSubview(tableView)
