@@ -19,8 +19,11 @@ extension DetailPresenter: DetailPresenterProtocol {
     }
 }
 extension DetailPresenter: DetailInteractorOutputProtocol {
+    func detailEntity(data: ResultsModel) -> DetailEntity {
+        return DetailEntity(title: data.title ?? "", author: data.byline ?? "", date: data.published_date ?? "", abstract: data.abstract ?? "")
+    }
     func sendData(data: ResultsModel) {
-        let data = DetailEntity(title: data.title ?? "", author: data.byline ?? "", date: data.published_date ?? "", abstract: data.abstract ?? "")
+        let data = detailEntity(data: data)
         view?.showData(data: data)
     }
 }

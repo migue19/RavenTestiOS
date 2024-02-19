@@ -5,7 +5,7 @@
 //  Created by Miguel Mexicano Herrera on 16/02/24.
 //
 import Foundation
-struct ResultsModel: Codable {
+struct ResultsModel: Codable, Equatable {
 	let uri : String?
 	let url : String?
 	let id : Int?
@@ -53,7 +53,30 @@ struct ResultsModel: Codable {
 		case media = "media"
 		case eta_id = "eta_id"
 	}
-
+    init(uri: String? = nil, url: String? = nil, id: Int? = nil, asset_id: Int? = nil, source: String? = nil, published_date: String? = nil, updated: String? = nil, section: String? = nil, subsection: String? = nil, nytdsection: String? = nil, adxKeywords: String? = nil, column: String? = nil, byline: String? = nil, type: String? = nil, title: String? = nil, abstract: String? = nil, des_facet: [String]? = nil, org_facet: [String]? = nil, per_facet: [String]? = nil, geo_facet: [String]? = nil, media: [Media]? = nil, eta_id: Int? = nil) {
+        self.uri = uri
+        self.url = url
+        self.id = id
+        self.asset_id = asset_id
+        self.source = source
+        self.published_date = published_date
+        self.updated = updated
+        self.section = section
+        self.subsection = subsection
+        self.nytdsection = nytdsection
+        self.adxKeywords = adxKeywords
+        self.column = column
+        self.byline = byline
+        self.type = type
+        self.title = title
+        self.abstract = abstract
+        self.des_facet = des_facet
+        self.org_facet = org_facet
+        self.per_facet = per_facet
+        self.geo_facet = geo_facet
+        self.media = media
+        self.eta_id = eta_id
+    }
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
 		uri = try values.decodeIfPresent(String.self, forKey: .uri)
@@ -86,5 +109,8 @@ struct ResultsModel: Codable {
         try container.encode(byline, forKey: .byline)
         try container.encode(published_date, forKey: .published_date)
         try container.encode(abstract, forKey: .abstract)
+    }
+    static func == (lhs: ResultsModel, rhs: ResultsModel) -> Bool {
+        lhs.title == rhs.title
     }
 }

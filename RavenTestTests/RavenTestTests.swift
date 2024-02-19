@@ -9,28 +9,41 @@ import XCTest
 @testable import RavenTest
 
 final class RavenTestTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    private var data: [ResultsModel] = []
+    override func setUp() {
+        data = [
+            ResultsModel(published_date: "24-03-1992", title: "Title1"),
+            ResultsModel(title: "Title2" , abstract: "un pedazo de articulo"),
+            ResultsModel(byline: "by Juan", title: "Title3"),
+        ]
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        self.data = []
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testGetTitleArticles() {
+        let expected = ["Title1", "Title2", "Title3"]
+        let presenter = HomePresenter()
+        let result = presenter.getTitles(data: data)
+        XCTAssertEqual(result, expected)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testPersistence() {
+        let expected = data
+        Persistence.saveArticles(data: expected)
+        let result = Persistence.getArticles()
+        XCTAssertEqual(result, expected)
     }
-
+    func testInternetON() {
+        let result = Reachability.isConnectedToNetwork()
+        XCTAssertTrue(result)
+    }
+    func testInternetOFF() {
+        let result = Reachability.isConnectedToNetwork()
+        XCTAssertFalse(result)
+    }
+    func testDetailEntity() {
+        let expected = DetailEntity(title: "Title1", author: "", date: "24-03-1992", abstract: "")
+        let presenter = DetailPresenter()
+        let result = presenter.detailEntity(data: data[0])
+        XCTAssertEqual(result, expected)
+    }
 }

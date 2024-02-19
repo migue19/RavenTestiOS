@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct DetailEntity {
+struct DetailEntity: Equatable {
     let title: String
     let author: String
     let date: String

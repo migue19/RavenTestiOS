@@ -24,9 +24,12 @@ extension HomePresenter: HomePresenterProtocol {
     }
 }
 extension HomePresenter: HomeInteractorOutputProtocol {
+    func getTitles(data: [ResultsModel]) -> [String]{
+        return data.compactMap({$0.title})
+    }
     private func processData(data: [ResultsModel]) {
         self.data = data
-        let titles = data.compactMap({$0.title})
+        let titles = getTitles(data: data)
         self.view?.hideHUD()
         self.view?.showData(data: titles)
     }
