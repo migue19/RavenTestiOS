@@ -24,6 +24,13 @@ extension HomePresenter: HomePresenterProtocol {
     }
 }
 extension HomePresenter: HomeInteractorOutputProtocol {
+    func sendErrorMessage(message: String) {
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideHUD()
+            self?.view?.showNoData()
+            self?.view?.showMessage(message: message, type: .error)
+        }
+    }
     func sendData(data: [ResultsModel]) {
         self.data = data
         let titles = data.compactMap({$0.title})

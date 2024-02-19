@@ -1,17 +1,18 @@
 //
-//  TitleViewCell.swift
-//  MyPasswords
+//  ErrorViewCell.swift
+//  RavenTest
 //
-//  Created by Miguel Mexicano Herrera on 19/01/24.
+//  Created by Miguel Mexicano Herrera on 18/02/24.
 //
-
 import UIKit
-
-class TitleViewCell: UITableViewCell, ReusableView {
+class ErrorViewCell: UITableViewCell, ReusableView {
     lazy var titleLabel: UILabel = {
         var label: UILabel = UILabel()
         label.text = ""
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        //label.backgroundColor = .red
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -26,9 +27,8 @@ class TitleViewCell: UITableViewCell, ReusableView {
         titleLabel.text = title
     }
 }
-extension TitleViewCell: CreateView {
+extension ErrorViewCell: CreateView {
     func setupView() {
-        self.selectionStyle = .none
         addSubviews()
         setupConstraints()
     }
@@ -36,9 +36,9 @@ extension TitleViewCell: CreateView {
         self.contentView.addSubview(titleLabel)
     }
     func setupConstraints() {
-        titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 250).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -16).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0).isActive = true
     }
 }

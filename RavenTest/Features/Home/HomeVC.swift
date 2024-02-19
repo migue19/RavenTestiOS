@@ -7,15 +7,19 @@
 //
 import Foundation
 import UIKit
-class HomeVC: UIViewController {
+class HomeVC: BaseController {
     var presenter: HomePresenterProtocol?
-    
+    var isEmptyData = true
+    let noDataText = "No Hay Datos\npara mostrar"
     lazy var tableView: UITableView = {
         var tableView: UITableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(TitleViewCell.self, forCellReuseIdentifier: "TitleViewCell")
-        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.register(TitleViewCell.self)
+        tableView.register(ErrorViewCell.self)
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -26,17 +30,19 @@ class HomeVC: UIViewController {
         getData()
     }
     func getData() {
-        if Reachability.isConnectedToNetwork() {
-            presenter?.getData()
-        } else {
-            print("No hay red")
-        }
+        presenter?.getData()
     }
 }
 /// Protocolo para recibir datos del presenter.
 extension HomeVC: HomeViewProtocol {
     func showData(data: [String]) {
-        self.dataSources = data
+        self.isEmptyData = data.count == 0
+        self.dataSources = isEmptyData ? [noDataText] : data
+        self.tableView.reloadData()
+    }
+    func showNoData() {
+        self.isEmptyData = true
+        self.dataSources = [noDataText]
         self.tableView.reloadData()
     }
 }
@@ -58,7 +64,9 @@ extension HomeVC: CreateView {
 }
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.tapInArticle(index: indexPath.row)
+        if !isEmptyData {
+            presenter?.tapInArticle(index: indexPath.row)
+        }
     }
 }
 extension HomeVC: UITableViewDataSource {
@@ -66,11 +74,16 @@ extension HomeVC: UITableViewDataSource {
         return dataSources.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleViewCell") as? TitleViewCell else {
-            return UITableViewCell()
+        if !isEmptyData {
+            let cell = tableView.dequeueReusableCell(for: indexPath) as TitleViewCell
+            let title = dataSources[indexPath.row]
+            cell.setupCell(title: title)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(for: indexPath) as ErrorViewCell
+            let title = dataSources[indexPath.row]
+            cell.setupCell(title: title)
+            return cell
         }
-        let title = dataSources[indexPath.row]
-        cell.setupCell(title: title)
-        return cell
     }
 }

@@ -10,6 +10,7 @@
 /// PRESENTER -> VIEW
 protocol HomeViewProtocol: GeneralView {
     func showData(data: [String])
+    func showNoData()
 }
 /// Protocolo que define los métodos y atributos para el routing de Home
 /// PRESENTER -> ROUTING
@@ -31,4 +32,5 @@ protocol HomeInteractorInputProtocol {
 /// INTERACTOR -> PRESENTER
 protocol HomeInteractorOutputProtocol {
     func sendData(data: [ResultsModel])
+    func sendErrorMessage(message: String)
 }
