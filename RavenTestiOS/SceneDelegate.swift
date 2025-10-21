@@ -19,12 +19,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let windows = UIWindow(windowScene: windowScene)
         
+        // Inicializar Core Data
+        setupCoreData()
+        
+        // Inicializar Network Monitor
+        NetworkMonitor.shared.startMonitoring()
+        
         let rootViewController = HomeRouter.createHomeModule()
         let navigationController = UINavigationController(rootViewController: rootViewController)
         //let rootViewController = Constants.createTabBar()
         windows.rootViewController = navigationController
         windows.makeKeyAndVisible()
         self.window = windows
+    }
+    
+    // MARK: - Core Data Setup
+    private func setupCoreData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        // Asegurarse de que el persistent container esté cargado
+        _ = appDelegate.persistentContainer
+        
+        // Verificar que Core Data esté funcionando correctamente
+        CoreDataManager.shared.hasCachedArticles { hasCache in
+            if hasCache {
+                print("✅ Core Data inicializado - Se encontraron artículos en cache")
+            } else {
+                print("ℹ️ Core Data inicializado - No hay artículos en cache")
+            }
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

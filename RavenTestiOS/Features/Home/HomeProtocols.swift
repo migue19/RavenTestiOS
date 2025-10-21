@@ -38,6 +38,7 @@ protocol HomeInteractorOutputProtocol: AnyObject {
 protocol HomeInteractorInputProtocol: AnyObject {
     var presenter: HomeInteractorOutputProtocol? { get set }
     var remoteDatamanager: HomeRemoteDataManagerInputProtocol? { get set }
+    var localDataManager: HomeLocalDataManagerInputProtocol? { get set }
     
     func getArticles()
 }
@@ -53,4 +54,10 @@ protocol HomeRemoteDataManagerInputProtocol: AnyObject {
 protocol HomeRemoteDataManagerOutputProtocol: AnyObject {
     func onArticlesFetched(_ articles: [Article])
     func onArticlesFetchFailed(error: String)
+}
+// INTERACTOR -> LOCALDATAMANAGER
+protocol HomeLocalDataManagerInputProtocol: AnyObject {
+    func saveArticles(_ articles: [Article], completion: @escaping (Bool) -> Void)
+    func fetchArticles(completion: @escaping ([Article]) -> Void)
+    func hasCachedArticles(completion: @escaping (Bool) -> Void)
 }

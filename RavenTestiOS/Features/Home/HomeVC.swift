@@ -15,6 +15,30 @@ final class HomeView: BaseController {
     private var articles: [Article] = []
     
     // MARK: UI Components
+    private lazy var offlineBanner: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .systemOrange
+        view.isHidden = true
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "📵 Sin conexión - Mostrando datos guardados"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.textAlignment = .center
+        
+        view.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
+        ])
+        
+        return view
+    }()
+    
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -30,21 +54,54 @@ final class HomeView: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupNetworkObserver()
+        updateOfflineBanner()
         presenter?.viewDidLoad()
+    }
+    
+    @MainActor
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupUI() {
         title = "NY Times - Most Emailed"
         view.backgroundColor = .systemBackground
         
+        view.addSubview(offlineBanner)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            offlineBanner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            offlineBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            offlineBanner.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            offlineBanner.heightAnchor.constraint(equalToConstant: 40),
+            
+            tableView.topAnchor.constraint(equalTo: offlineBanner.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func setupNetworkObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(networkStatusChanged),
+            name: NetworkMonitor.connectivityChanged,
+            object: nil
+        )
+    }
+    
+    @objc private func networkStatusChanged() {
+        updateOfflineBanner()
+    }
+    
+    private func updateOfflineBanner() {
+        let isConnected = NetworkMonitor.shared.isConnected
+        UIView.animate(withDuration: 0.3) {
+            self.offlineBanner.isHidden = isConnected
+        }
     }
 }
 
@@ -74,3 +131,4 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
         presenter?.didSelectArticle(article)
     }
 }
+

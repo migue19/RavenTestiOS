@@ -17,6 +17,7 @@ class HomeRouter: HomeRouterProtocol {
         let presenter: HomePresenterProtocol & HomeInteractorOutputProtocol = HomePresenter()
         let interactor: HomeInteractorInputProtocol & HomeRemoteDataManagerOutputProtocol = HomeInteractor()
         let remoteDataManager: HomeRemoteDataManagerInputProtocol = HomeRemoteDataManager()
+        let localDataManager: HomeLocalDataManagerInputProtocol = HomeLocalDataManager()
         let router: HomeRouterProtocol = HomeRouter()
         
         view.presenter = presenter
@@ -25,6 +26,7 @@ class HomeRouter: HomeRouterProtocol {
         presenter.interactor = interactor
         interactor.presenter = presenter
         interactor.remoteDatamanager = remoteDataManager
+        interactor.localDataManager = localDataManager
         remoteDataManager.remoteRequestHandler = interactor
         router.view = view
         
