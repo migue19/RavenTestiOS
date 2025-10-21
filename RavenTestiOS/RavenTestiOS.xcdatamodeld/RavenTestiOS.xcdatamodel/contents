@@ -6,9 +6,9 @@
         <attribute name="assetId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="byline" optional="YES" attributeType="String"/>
         <attribute name="column" optional="YES" attributeType="String"/>
-        <attribute name="desFacet" optional="YES" attributeType="Transformable"/>
+        <attribute name="desFacet" optional="YES" attributeType="Transformable" valueTransformerName="ArrayTransformer"/>
         <attribute name="etaId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="geoFacet" optional="YES" attributeType="Transformable"/>
+        <attribute name="geoFacet" optional="YES" attributeType="Transformable" valueTransformerName="ArrayTransformer"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="itemType" optional="YES" attributeType="String"/>
         <attribute name="kicker" optional="YES" attributeType="String"/>
@@ -16,8 +16,8 @@
         <attribute name="materialTypeFacet" optional="YES" attributeType="String"/>
         <attribute name="mediaData" optional="YES" attributeType="Binary"/>
         <attribute name="nytdsection" optional="YES" attributeType="String"/>
-        <attribute name="orgFacet" optional="YES" attributeType="Transformable"/>
-        <attribute name="perFacet" optional="YES" attributeType="Transformable"/>
+        <attribute name="orgFacet" optional="YES" attributeType="Transformable" valueTransformerName="ArrayTransformer"/>
+        <attribute name="perFacet" optional="YES" attributeType="Transformable" valueTransformerName="ArrayTransformer"/>
         <attribute name="publishedDate" optional="YES" attributeType="String"/>
         <attribute name="section" optional="YES" attributeType="String"/>
         <attribute name="shortUrl" optional="YES" attributeType="String"/>
