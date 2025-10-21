@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		08234D122827AD521B404CC9 /* Pods_RavenTestiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA0FCCAB6438C113E7BEB73 /* Pods_RavenTestiOS.framework */; };
+		100C5FF60A52D7319DC9D1E3 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12759C744140344BAEE3DE4 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework */; };
+		A77148B87B813936EEFBBE4A /* Pods_RavenTestiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53D886C3121B6870E80B98 /* Pods_RavenTestiOSTests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		F2F7EAE22EA81B1B00FDC324 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +30,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54A789ED5F5CD3BD1635187F /* Pods-RavenTestiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestiOS.release.xcconfig"; path = "Target Support Files/Pods-RavenTestiOS/Pods-RavenTestiOS.release.xcconfig"; sourceTree = "<group>"; };
+		8FF655138C38AD609CF311F9 /* Pods-RavenTestiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestiOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RavenTestiOSTests/Pods-RavenTestiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB247A95214E8767076FA76A /* Pods-RavenTestiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestiOSTests.release.xcconfig"; path = "Target Support Files/Pods-RavenTestiOSTests/Pods-RavenTestiOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		ADD133FEAD8BED53827E371B /* Pods-RavenTestiOS-RavenTestiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestiOS-RavenTestiOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-RavenTestiOS-RavenTestiOSUITests/Pods-RavenTestiOS-RavenTestiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE53D886C3121B6870E80B98 /* Pods_RavenTestiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTestiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C58B62D630862AF0B5998DF3 /* Pods-RavenTestiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestiOS.debug.xcconfig"; path = "Target Support Files/Pods-RavenTestiOS/Pods-RavenTestiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		CCA0FCCAB6438C113E7BEB73 /* Pods_RavenTestiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTestiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1F182E855DB85A3C60F60CC /* Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig"; path = "Target Support Files/Pods-RavenTestiOS-RavenTestiOSUITests/Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F12759C744140344BAEE3DE4 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTestiOS_RavenTestiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F7EAC82EA81B1A00FDC324 /* RavenTestiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenTestiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F7EAE12EA81B1B00FDC324 /* RavenTestiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RavenTestiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F7EAEB2EA81B1B00FDC324 /* RavenTestiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RavenTestiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08234D122827AD521B404CC9 /* Pods_RavenTestiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77148B87B813936EEFBBE4A /* Pods_RavenTestiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,12 +96,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100C5FF60A52D7319DC9D1E3 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A009CAD2E762DAE6B81B86B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C58B62D630862AF0B5998DF3 /* Pods-RavenTestiOS.debug.xcconfig */,
+				54A789ED5F5CD3BD1635187F /* Pods-RavenTestiOS.release.xcconfig */,
+				ADD133FEAD8BED53827E371B /* Pods-RavenTestiOS-RavenTestiOSUITests.debug.xcconfig */,
+				D1F182E855DB85A3C60F60CC /* Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig */,
+				8FF655138C38AD609CF311F9 /* Pods-RavenTestiOSTests.debug.xcconfig */,
+				AB247A95214E8767076FA76A /* Pods-RavenTestiOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5D43A7EF49AB1501AD4C8F89 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CCA0FCCAB6438C113E7BEB73 /* Pods_RavenTestiOS.framework */,
+				F12759C744140344BAEE3DE4 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework */,
+				BE53D886C3121B6870E80B98 /* Pods_RavenTestiOSTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F2F7EABF2EA81B1A00FDC324 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +133,8 @@
 				F2F7EAE42EA81B1B00FDC324 /* RavenTestiOSTests */,
 				F2F7EAEE2EA81B1B00FDC324 /* RavenTestiOSUITests */,
 				F2F7EAC92EA81B1A00FDC324 /* Products */,
+				5A009CAD2E762DAE6B81B86B /* Pods */,
+				5D43A7EF49AB1501AD4C8F89 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2F7EAF42EA81B1B00FDC324 /* Build configuration list for PBXNativeTarget "RavenTestiOS" */;
 			buildPhases = (
+				6A0846D20FE6627C33D57FFC /* [CP] Check Pods Manifest.lock */,
 				F2F7EAC42EA81B1A00FDC324 /* Sources */,
 				F2F7EAC52EA81B1A00FDC324 /* Frameworks */,
 				F2F7EAC62EA81B1A00FDC324 /* Resources */,
+				B29AB26A18E8A96B400C84DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,8 +169,6 @@
 				F2F7EACA2EA81B1A00FDC324 /* RavenTestiOS */,
 			);
 			name = RavenTestiOS;
-			packageProductDependencies = (
-			);
 			productName = RavenTestiOS;
 			productReference = F2F7EAC82EA81B1A00FDC324 /* RavenTestiOS.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +177,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2F7EAF92EA81B1B00FDC324 /* Build configuration list for PBXNativeTarget "RavenTestiOSTests" */;
 			buildPhases = (
+				55E754D5550683B2DA10FADD /* [CP] Check Pods Manifest.lock */,
 				F2F7EADD2EA81B1B00FDC324 /* Sources */,
 				F2F7EADE2EA81B1B00FDC324 /* Frameworks */,
 				F2F7EADF2EA81B1B00FDC324 /* Resources */,
@@ -147,8 +191,6 @@
 				F2F7EAE42EA81B1B00FDC324 /* RavenTestiOSTests */,
 			);
 			name = RavenTestiOSTests;
-			packageProductDependencies = (
-			);
 			productName = RavenTestiOSTests;
 			productReference = F2F7EAE12EA81B1B00FDC324 /* RavenTestiOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2F7EAFC2EA81B1B00FDC324 /* Build configuration list for PBXNativeTarget "RavenTestiOSUITests" */;
 			buildPhases = (
+				1E3F3C40DEE80CCB735F696F /* [CP] Check Pods Manifest.lock */,
 				F2F7EAE72EA81B1B00FDC324 /* Sources */,
 				F2F7EAE82EA81B1B00FDC324 /* Frameworks */,
 				F2F7EAE92EA81B1B00FDC324 /* Resources */,
+				76C2854D8EB7CD1B66F326AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,8 +214,6 @@
 				F2F7EAEE2EA81B1B00FDC324 /* RavenTestiOSUITests */,
 			);
 			name = RavenTestiOSUITests;
-			packageProductDependencies = (
-			);
 			productName = RavenTestiOSUITests;
 			productReference = F2F7EAEB2EA81B1B00FDC324 /* RavenTestiOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -244,6 +286,117 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E3F3C40DEE80CCB735F696F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RavenTestiOS-RavenTestiOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55E754D5550683B2DA10FADD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RavenTestiOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A0846D20FE6627C33D57FFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RavenTestiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76C2854D8EB7CD1B66F326AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTestiOS-RavenTestiOSUITests/Pods-RavenTestiOS-RavenTestiOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTestiOS-RavenTestiOSUITests/Pods-RavenTestiOS-RavenTestiOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RavenTestiOS-RavenTestiOSUITests/Pods-RavenTestiOS-RavenTestiOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B29AB26A18E8A96B400C84DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTestiOS/Pods-RavenTestiOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenTestiOS/Pods-RavenTestiOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RavenTestiOS/Pods-RavenTestiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F2F7EAC42EA81B1A00FDC324 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,17 +437,19 @@
 /* Begin XCBuildConfiguration section */
 		F2F7EAF52EA81B1B00FDC324 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C58B62D630862AF0B5998DF3 /* Pods-RavenTestiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MC2W678MVZ;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RavenTestiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -316,17 +471,19 @@
 		};
 		F2F7EAF62EA81B1B00FDC324 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54A789ED5F5CD3BD1635187F /* Pods-RavenTestiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MC2W678MVZ;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RavenTestiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -469,6 +626,7 @@
 		};
 		F2F7EAFA2EA81B1B00FDC324 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FF655138C38AD609CF311F9 /* Pods-RavenTestiOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -491,6 +649,7 @@
 		};
 		F2F7EAFB2EA81B1B00FDC324 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB247A95214E8767076FA76A /* Pods-RavenTestiOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -513,6 +672,7 @@
 		};
 		F2F7EAFD2EA81B1B00FDC324 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADD133FEAD8BED53827E371B /* Pods-RavenTestiOS-RavenTestiOSUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -533,6 +693,7 @@
 		};
 		F2F7EAFE2EA81B1B00FDC324 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1F182E855DB85A3C60F60CC /* Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

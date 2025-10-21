@@ -1,0 +1,6 @@
+framework module Pods_RavenTestiOSTests {
+  umbrella header "Pods-RavenTestiOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
