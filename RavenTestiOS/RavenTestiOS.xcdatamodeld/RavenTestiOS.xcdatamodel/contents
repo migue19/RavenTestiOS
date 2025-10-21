@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="24299" systemVersion="24G231" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ArticleEntity" representedClassName=".ArticleEntity" syncable="YES">
+        <attribute name="abstract" optional="YES" attributeType="String"/>
+        <attribute name="adxKeywords" optional="YES" attributeType="String"/>
+        <attribute name="assetId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="byline" optional="YES" attributeType="String"/>
+        <attribute name="column" optional="YES" attributeType="String"/>
+        <attribute name="desFacet" optional="YES" attributeType="Transformable"/>
+        <attribute name="etaId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="geoFacet" optional="YES" attributeType="Transformable"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="itemType" optional="YES" attributeType="String"/>
+        <attribute name="kicker" optional="YES" attributeType="String"/>
         <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="materialTypeFacet" optional="YES" attributeType="String"/>
+        <attribute name="mediaData" optional="YES" attributeType="Binary"/>
+        <attribute name="nytdsection" optional="YES" attributeType="String"/>
+        <attribute name="orgFacet" optional="YES" attributeType="Transformable"/>
+        <attribute name="perFacet" optional="YES" attributeType="Transformable"/>
+        <attribute name="publishedDate" optional="YES" attributeType="String"/>
+        <attribute name="section" optional="YES" attributeType="String"/>
+        <attribute name="shortUrl" optional="YES" attributeType="String"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
+        <attribute name="subsection" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="updatedDate" optional="YES" attributeType="String"/>
+        <attribute name="uri" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
 </model>
