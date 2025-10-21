@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class HomeView: BaseController {
+final class HomeView: BaseController {
     // MARK: Properties
     var presenter: HomePresenterProtocol?
     private var articles: [Article] = []
@@ -20,7 +20,7 @@ class HomeView: BaseController {
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
         table.dataSource = self
-        table.register(ArticleCell.self, forCellReuseIdentifier: "ArticleCell")
+        table.register(ArticleCell.self)
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 120
         return table
@@ -62,9 +62,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as? ArticleCell else {
-            return UITableViewCell()
-        }
+        let cell: ArticleCell = tableView.dequeueReusableCell(for: indexPath)
         let article = articles[indexPath.row]
         cell.configure(with: article)
         return cell

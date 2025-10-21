@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ArticleCell: UITableViewCell {
+class ArticleCell: UITableViewCell, ReusableView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
