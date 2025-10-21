@@ -27,6 +27,10 @@ extension HomePresenter: HomePresenterProtocol {
         view?.showHUD()
         interactor?.getArticles()
     }
+    
+    func didSelectArticle(_ article: Article) {
+        router?.navigateToDetail(with: article)
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {

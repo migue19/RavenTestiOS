@@ -3,7 +3,7 @@
 //  RavenTestiOS
 //
 //  Created by Miguel Mexicano Herrera on 21/10/25.
-//  
+//
 //
 
 import Foundation
@@ -17,6 +17,7 @@ protocol HomeViewProtocol: AnyObject, GeneralView {
 protocol HomeRouterProtocol: AnyObject {
     var view: HomeView? { get set }
     static func createHomeModule() -> UIViewController
+    func navigateToDetail(with article: Article)
 }
 // VIEW -> PRESENTER
 protocol HomePresenterProtocol: AnyObject {
@@ -26,6 +27,7 @@ protocol HomePresenterProtocol: AnyObject {
     
     func viewDidLoad()
     func fetchArticles()
+    func didSelectArticle(_ article: Article)
 }
 // INTERACTOR -> PRESENTER
 protocol HomeInteractorOutputProtocol: AnyObject {

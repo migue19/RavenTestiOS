@@ -3,7 +3,7 @@
 //  RavenTestiOS
 //
 //  Created by Miguel Mexicano Herrera on 21/10/25.
-//  
+//
 //
 
 import Foundation
@@ -29,5 +29,10 @@ class HomeRouter: HomeRouterProtocol {
         router.view = view
         
         return view
+    }
+    
+    func navigateToDetail(with article: Article) {
+        let detailVC = DetailRouter.createDetailModule(with: article)
+        view?.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
