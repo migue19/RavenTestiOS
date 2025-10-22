@@ -145,6 +145,10 @@ RavenTestiOS/
 │   ├── NetworkMonitor.swift         # Monitor de conectividad
 │   └── ArrayTransformer.swift       # Transformer para Core Data
 │
+├── Components/                       # Componentes reutilizables de UI
+│   ├── PlaceholderView.swift        # Vista de estado vacío
+│   └── OfflineBannerView.swift      # Banner de conectividad
+│
 ├── Base/                             # Clases base y utilidades
 │   ├── BaseController.swift         # ViewController base
 │   ├── BaseProtocols.swift          # Protocolos generales
@@ -157,6 +161,7 @@ RavenTestiOS/
 │   └── UITableView+Extensions.swift # Registro/Dequeue simplificado
 │
 ├── Constants/                        # Constantes de la app
+│   └── Constants.swift               # API Keys y URLs
 │
 └── RavenTestiOS.xcdatamodeld/       # Modelo de Core Data
     └── Article (Entity)              # Entidad de artículos
@@ -191,6 +196,57 @@ RavenTestiOS/
 - ✅ Banner visual cuando está offline
 - ✅ Notificaciones de cambio de estado
 - ✅ Manejo inteligente de fallbacks
+
+## 🎨 Componentes Reutilizables
+
+### PlaceholderView
+Componente simple y elegante para mostrar cuando no hay datos en la tabla.
+
+**Características:**
+- 📝 Mensaje claro: "No hay artículos para mostrar"
+- 🔄 Botón de recarga interactivo
+- 🎯 Se muestra automáticamente como `backgroundView` del `UITableView`
+- ✨ Diseño centrado y minimalista
+
+**Uso:**
+```swift
+// Configurar callback
+placeholderView.onRetry = { [weak self] in
+    self?.presenter?.viewDidLoad()
+}
+
+// Mostrar cuando no hay artículos
+if articles.isEmpty {
+    tableView.backgroundView = placeholderView
+} else {
+    tableView.backgroundView = nil
+}
+```
+
+**Cuándo se muestra:**
+- Cuando `articles.count == 0` (por cualquier razón)
+- Error en la API
+- Sin conexión y sin cache
+- Primera carga sin datos
+
+### OfflineBannerView
+Banner dinámico que aparece en la parte superior cuando no hay conexión.
+
+**Características:**
+- 📡 Detección automática de conectividad
+- 🎨 Altura animada (0 a 40 puntos)
+- 🟠 Color naranja para máxima visibilidad
+- 📵 Mensaje: "Sin conexión - Mostrando datos guardados"
+
+**Uso:**
+```swift
+// Actualizar según conectividad
+offlineBanner.updateConnectivityStatus(isConnected: isConnected)
+
+// Métodos disponibles
+offlineBanner.show()    // Muestra el banner
+offlineBanner.hide()    // Oculta el banner
+```
 
 ## 🧪 Testing
 
@@ -238,10 +294,20 @@ pod install
 ```
 
 3. **Configurar API Key**
-Edita `HomeRemoteDataManager.swift` y agrega tu API key:
+Edita `Constants/Constants.swift` y reemplaza con tu API key válido:
 ```swift
-let apiKey = "TU_API_KEY_AQUI"
+struct NYTimesApi {
+    static let key = "TU_API_KEY_AQUI"  // ⬅️ Reemplaza con tu API Key
+    // ...resto del código
+}
 ```
+
+**Obtener API Key:**
+1. Visita: https://developer.nytimes.com/
+2. Crea una cuenta gratuita
+3. Ve a "Apps" → "Create App"
+4. Activa **"Most Popular API"**
+5. Copia tu API Key y pégala en `Constants.swift`
 
 4. **Abrir workspace**
 ```bash
@@ -502,17 +568,79 @@ var connectionLayerDebug: Bool {
 
 ## 🌟 Características Destacadas
 
-1. **Arquitectura Limpia**: VIPER proporciona separación clara de responsabilidades
-2. **Testeable**: 27 pruebas unitarias con mocks completos
-3. **Offline First**: Funciona sin internet desde el primer lanzamiento
-4. **Moderno**: Usa las últimas APIs de iOS y Swift
-5. **Escalable**: Fácil agregar nuevos módulos/features
-6. **Mantenible**: Código bien organizado y documentado
+1. **Arquitectura Limpia VIPER**: Separación clara de responsabilidades, fácil de testear y mantener
+2. **Componentes Reutilizables**: 
+   - `PlaceholderView`: Estado vacío simple y elegante
+   - `OfflineBannerView`: Banner animado de conectividad
+   - `ArticleCell`: Celda personalizada con extensions
+3. **Persistencia Completa**: Core Data con estrategia offline-first y cache inteligente
+4. **Networking Profesional**: ConnectionLayer propio con sistema de debug integrado
+5. **27 Pruebas Unitarias**: Cobertura completa con mocks y test doubles
+6. **Experiencia de Usuario Superior**:
+   - Placeholder simple cuando no hay datos
+   - Banner de conectividad en tiempo real
+   - Carga instantánea desde cache
+   - HUD de progreso elegante
+7. **Código Moderno**: Swift 5.9+, Principios SOLID, Patrones de diseño
+8. **Sin Warnings**: Código limpio sin conflictos de layout ni memory leaks
+
+## 📱 Experiencia de Usuario
+
+### Estado Normal
+- ✅ Lista de 20 artículos del NY Times
+- ✅ Scroll fluido con celdas de altura dinámica
+- ✅ Tap en artículo → Navegación al detalle
+- ✅ Imágenes descargadas asincrónicamente
+
+### Sin Artículos (articles.count == 0)
+- 📝 Mensaje: "No hay artículos para mostrar"
+- 🔄 Botón "Recargar" para reintentar
+- Se muestra por cualquier razón: error API, sin internet, sin cache
+
+### Sin Conexión
+- 🟠 Banner naranja arriba: "Sin conexión - Mostrando datos guardados"
+- 📦 Artículos desde cache (si existen)
+- 🔄 Se actualiza automáticamente al recuperar conexión
+
+## 🔒 Consideraciones de Seguridad
+
+- ✅ API Key configurable en un solo lugar (`Constants.swift`)
+- ✅ HTTPS para todas las peticiones
+- ✅ Validación de datos del servidor
+- ✅ Manejo seguro de errores
+- ⚠️ Nota: En producción, el API Key debería estar en variables de entorno o Keychain
 
 ## 📝 TODO / Mejoras Futuras
 
 - [ ] Agregar búsqueda de artículos
 - [ ] Implementar categorías/filtros
+- [ ] Pull-to-refresh
+- [ ] Compartir artículos en redes sociales
+- [ ] Modo oscuro personalizado
+- [ ] Animaciones entre vistas
+- [ ] Widget de iOS para artículos recientes
+
+## 👨‍💻 Autor
+
+**Miguel Mexicano Herrera**
+
+- Pod personalizado: **ConnectionLayer** - Capa de networking propia
+- Arquitectura: VIPER completa con 2 módulos
+- Testing: 27 pruebas unitarias
+- Componentes: Reutilizables y documentados
+
+## 📄 Licencia
+
+Este proyecto fue desarrollado como prueba técnica para demostrar habilidades en:
+- Arquitectura iOS (VIPER)
+- Persistencia (Core Data)
+- Networking (ConnectionLayer personalizado)
+- Testing (Unit Tests)
+- UI/UX (Componentes reutilizables)
+
+---
+
+**⭐ Proyecto completo con arquitectura profesional, persistencia offline-first, y componentes reutilizables ⭐**
 - [ ] Guardar artículos favoritos
 - [ ] Compartir artículos en redes sociales
 - [ ] Dark mode completo

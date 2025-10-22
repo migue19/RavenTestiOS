@@ -30,14 +30,18 @@ final class PlaceholderView: UIView {
     }()
     
     private lazy var retryButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Recargar", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 12
-        button.contentEdgeInsets = UIEdgeInsets(top: 14, left: 32, bottom: 14, right: 32)
-        button.addTarget(self, action: #selector(retryTapped), for: .touchUpInside)
+        var config = UIButton.Configuration.filled()
+        config.title = "Recargar"
+        config.baseBackgroundColor = .systemBlue
+        config.baseForegroundColor = .white
+        config.cornerStyle = .medium
+        config.contentInsets = NSDirectionalEdgeInsets(top: 14, leading: 32, bottom: 14, trailing: 32)
+        
+        let button = UIButton(configuration: config, primaryAction: UIAction { [weak self] _ in
+            self?.onRetry?()
+        })
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
         return button
     }()
     
@@ -68,10 +72,5 @@ final class PlaceholderView: UIView {
             stackView.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -40)
         ])
-    }
-    
-    // MARK: - Actions
-    @objc private func retryTapped() {
-        onRetry?()
     }
 }

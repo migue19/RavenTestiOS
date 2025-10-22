@@ -29,6 +29,12 @@ final class HomeView: BaseController {
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 120
         table.separatorStyle = .singleLine
+        
+        // Agregar refresh control
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        table.refreshControl = refreshControl
+        
         return table
     }()
 
@@ -93,6 +99,11 @@ final class HomeView: BaseController {
         updateOfflineBanner()
     }
     
+    @objc private func handleRefresh() {
+        print("🔄 Pull to refresh triggered")
+        presenter?.viewDidLoad()
+    }
+    
     private func updateOfflineBanner() {
         let isConnected = NetworkMonitor.shared.isConnected
         offlineBanner.updateConnectivityStatus(isConnected: isConnected)
@@ -106,6 +117,9 @@ extension HomeView: HomeViewProtocol {
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
+            
+            // Detener el refresh control si está activo
+            self.tableView.refreshControl?.endRefreshing()
             
             if articles.isEmpty {
                 // No hay artículos - mostrar placeholder
@@ -123,6 +137,11 @@ extension HomeView: HomeViewProtocol {
     }
     
     func showError(_ error: String) {
+        // Detener el refresh control si está activo
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.refreshControl?.endRefreshing()
+        }
+        
         showMessage(message: error, type: .error)
         // En caso de error, mostrar placeholder (pasando array vacío)
         showArticles([])
@@ -132,10 +151,13 @@ extension HomeView: HomeViewProtocol {
 // MARK: - TableView DataSource & Delegate
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("🔢 numberOfRowsInSection called - returning \(articles.count) rows")
+        print("🔢 TableView backgroundView is: \(tableView.backgroundView != nil ? "SET" : "nil")")
         return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("🔧 cellForRowAt called for row \(indexPath.row)")
         let cell: ArticleCell = tableView.dequeueReusableCell(for: indexPath)
         let article = articles[indexPath.row]
         cell.configure(with: article)
