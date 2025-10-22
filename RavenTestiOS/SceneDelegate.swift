@@ -19,11 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let windows = UIWindow(windowScene: windowScene)
         
-        // Inicializar Core Data
-        setupCoreData()
-        
-        // Inicializar Network Monitor
-        NetworkMonitor.shared.startMonitoring()
+        // Si estamos ejecutando tests unitarios, evitar inicializaciones que toquen UI o servicios globales
+        let isRunningTests = ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+        if !isRunningTests {
+            // Inicializar Core Data
+            setupCoreData()
+            // Inicializar Network Monitor
+            NetworkMonitor.shared.startMonitoring()
+        } else {
+            print("ℹ️ SceneDelegate: running under tests — skipping runtime initializations")
+        }
         
         let rootViewController = HomeRouter.createHomeModule()
         let navigationController = UINavigationController(rootViewController: rootViewController)
@@ -85,4 +90,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

@@ -9,22 +9,45 @@ import Foundation
 import CoreData
 import UIKit
 
-class CoreDataManager {
+public class CoreDataManager {
     
-    static let shared = CoreDataManager()
+    public static let shared = CoreDataManager()
     
     private init() {}
     
+    // Added: allow tests to inject an in-memory context
+    public var overrideContext: NSManagedObjectContext?
+
+    // Added: internal persistent container used as a safe fallback when AppDelegate isn't available
+    private lazy var internalContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "RavenTestiOS")
+        let description = NSPersistentStoreDescription()
+        // default store type (SQLite) — only used as a fallback
+        container.persistentStoreDescriptions = [description]
+        container.loadPersistentStores { desc, error in
+            if let error = error {
+                print("⚠️ CoreDataManager: failed to load internal container: \(error)")
+            }
+        }
+        return container
+    }()
+    
     // MARK: - Core Data Context
     private var context: NSManagedObjectContext {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            fatalError("Unable to access AppDelegate")
+        // 1) tests can inject an in-memory context
+        if let override = overrideContext {
+            return override
         }
-        return appDelegate.persistentContainer.viewContext
+        // 2) prefer AppDelegate's container if available
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate.persistentContainer.viewContext
+        }
+        // 3) fallback to internal container (prevents crashes during early launch/tests)
+        return internalContainer.viewContext
     }
     
     // MARK: - Save Articles
-    func saveArticles(_ articles: [Article], completion: @escaping (Bool) -> Void) {
+    public func saveArticles(_ articles: [Article], completion: @escaping (Bool) -> Void) {
         context.perform {
             // Primero eliminar todos los artículos existentes
             self.deleteAllArticles()
@@ -79,7 +102,7 @@ class CoreDataManager {
     }
     
     // MARK: - Fetch Articles
-    func fetchArticles(completion: @escaping ([Article]) -> Void) {
+    public func fetchArticles(completion: @escaping ([Article]) -> Void) {
         context.perform {
             let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastUpdated", ascending: false)]
@@ -134,7 +157,7 @@ class CoreDataManager {
     }
     
     // MARK: - Check if has cached articles
-    func hasCachedArticles(completion: @escaping (Bool) -> Void) {
+    public func hasCachedArticles(completion: @escaping (Bool) -> Void) {
         context.perform {
             let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
             fetchRequest.fetchLimit = 1
@@ -154,7 +177,7 @@ class CoreDataManager {
     }
     
     // MARK: - Get cache date
-    func getCacheDate(completion: @escaping (Date?) -> Void) {
+    public func getCacheDate(completion: @escaping (Date?) -> Void) {
         context.perform {
             let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastUpdated", ascending: false)]
@@ -176,15 +199,19 @@ class CoreDataManager {
     
     // MARK: - Delete all articles
     private func deleteAllArticles() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = ArticleEntity.fetchRequest()
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
+        let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
         do {
-            try context.execute(deleteRequest)
-            try context.save()
+            let entities = try context.fetch(fetchRequest)
+            for entity in entities {
+                context.delete(entity)
+            }
+            if context.hasChanges {
+                try context.save()
+            }
             print("🗑️ CoreDataManager: Artículos antiguos eliminados")
         } catch {
             print("❌ CoreDataManager Error al eliminar: \(error.localizedDescription)")
         }
     }
+
 }

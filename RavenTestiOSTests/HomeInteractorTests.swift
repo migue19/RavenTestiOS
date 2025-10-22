@@ -19,12 +19,12 @@ struct HomeInteractorTests {
         var articlesReceived: [Article] = []
         var errorReceived: String?
         
-        func articlesFetched(_ articles: [Article]) {
+        func didFetchArticles(_ articles: [Article]) {
             articlesFetchedCalled = true
             articlesReceived = articles
         }
         
-        func articlesFetchFailed(_ error: String) {
+        func didFailFetchingArticles(error: String) {
             articlesFetchFailedCalled = true
             errorReceived = error
         }
@@ -41,9 +41,9 @@ struct HomeInteractorTests {
             fetchArticlesCalled = true
             
             if shouldSucceed {
-                remoteRequestHandler?.articlesRetrieved(mockArticles)
+                remoteRequestHandler?.onArticlesFetched(mockArticles)
             } else {
-                remoteRequestHandler?.articlesFetchFailed("Network error")
+                remoteRequestHandler?.onArticlesFetchFailed(error: "Network error")
             }
         }
     }
@@ -74,6 +74,7 @@ struct HomeInteractorTests {
     // MARK: - Tests
     
     @Test("Interactor fetches articles from remote data manager")
+    @MainActor
     func testGetArticlesCallsRemoteDataManager() async throws {
         // Given
         let mockPresenter = MockHomePresenter()
@@ -83,7 +84,7 @@ struct HomeInteractorTests {
         let interactor = HomeInteractor()
         interactor.presenter = mockPresenter
         interactor.remoteDatamanager = mockRemoteDataManager
-        interactor.localDatamanager = mockLocalDataManager
+        interactor.localDataManager = mockLocalDataManager
         mockRemoteDataManager.remoteRequestHandler = interactor
         
         // When
@@ -94,6 +95,7 @@ struct HomeInteractorTests {
     }
     
     @Test("Interactor notifies presenter when articles are retrieved successfully")
+    @MainActor
     func testArticlesRetrievedNotifiesPresenter() async throws {
         // Given
         let mockPresenter = MockHomePresenter()
@@ -115,7 +117,7 @@ struct HomeInteractorTests {
         let interactor = HomeInteractor()
         interactor.presenter = mockPresenter
         interactor.remoteDatamanager = mockRemoteDataManager
-        interactor.localDatamanager = mockLocalDataManager
+        interactor.localDataManager = mockLocalDataManager
         mockRemoteDataManager.remoteRequestHandler = interactor
         
         // When
@@ -128,6 +130,7 @@ struct HomeInteractorTests {
     }
     
     @Test("Interactor notifies presenter when articles fetch fails")
+    @MainActor
     func testArticlesFetchFailedNotifiesPresenter() async throws {
         // Given
         let mockPresenter = MockHomePresenter()
@@ -140,7 +143,7 @@ struct HomeInteractorTests {
         let interactor = HomeInteractor()
         interactor.presenter = mockPresenter
         interactor.remoteDatamanager = mockRemoteDataManager
-        interactor.localDatamanager = mockLocalDataManager
+        interactor.localDataManager = mockLocalDataManager
         mockRemoteDataManager.remoteRequestHandler = interactor
         
         // When
@@ -151,10 +154,12 @@ struct HomeInteractorTests {
         #expect(mockPresenter.errorReceived == "Network error")
     }
     
-    @Test("Interactor loads cached articles when available")
-    func testLoadCachedArticles() async throws {
+    @Test("Interactor attempts to load cached articles when remote fetch fails")
+    @MainActor
+    func testLoadsCachedArticlesWhenRemoteFails() async throws {
         // Given
         let mockPresenter = MockHomePresenter()
+        let mockRemoteDataManager = MockHomeRemoteDataManager()
         let mockLocalDataManager = MockHomeLocalDataManager()
         
         let cachedArticles = [
@@ -166,17 +171,21 @@ struct HomeInteractorTests {
                    geoFacet: [], media: [], etaId: 2)
         ]
         
+        mockRemoteDataManager.shouldSucceed = false
         mockLocalDataManager.mockCachedArticles = cachedArticles
         mockLocalDataManager.hasCache = true
         
         let interactor = HomeInteractor()
         interactor.presenter = mockPresenter
-        interactor.localDatamanager = mockLocalDataManager
+        interactor.remoteDatamanager = mockRemoteDataManager
+        interactor.localDataManager = mockLocalDataManager
+        mockRemoteDataManager.remoteRequestHandler = interactor
         
         // When
-        interactor.loadCachedArticles()
+        interactor.getArticles()
         
-        // Then
+        // Then - Should check cache and load cached articles
+        #expect(mockLocalDataManager.hasCachedArticlesCalled == true)
         #expect(mockLocalDataManager.fetchArticlesCalled == true)
     }
 }

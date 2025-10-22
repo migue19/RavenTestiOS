@@ -7,6 +7,7 @@
 
 import Testing
 @testable import RavenTestiOS
+import Foundation
 
 @Suite("Array Transformer Tests")
 struct ArrayTransformerTests {
