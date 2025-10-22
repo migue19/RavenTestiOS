@@ -10,6 +10,7 @@
 		08234D122827AD521B404CC9 /* Pods_RavenTestiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCA0FCCAB6438C113E7BEB73 /* Pods_RavenTestiOS.framework */; };
 		100C5FF60A52D7319DC9D1E3 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F12759C744140344BAEE3DE4 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework */; };
 		A77148B87B813936EEFBBE4A /* Pods_RavenTestiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE53D886C3121B6870E80B98 /* Pods_RavenTestiOSTests.framework */; };
+		F2B7B6C72EA8590B00D92B44 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2B7B6C62EA8590B00D92B44 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		CCA0FCCAB6438C113E7BEB73 /* Pods_RavenTestiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTestiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1F182E855DB85A3C60F60CC /* Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig"; path = "Target Support Files/Pods-RavenTestiOS-RavenTestiOSUITests/Pods-RavenTestiOS-RavenTestiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F12759C744140344BAEE3DE4 /* Pods_RavenTestiOS_RavenTestiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenTestiOS_RavenTestiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2B7B6C62EA8590B00D92B44 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F2F7EAC82EA81B1A00FDC324 /* RavenTestiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenTestiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F7EAE12EA81B1B00FDC324 /* RavenTestiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RavenTestiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2F7EAEB2EA81B1B00FDC324 /* RavenTestiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RavenTestiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +131,7 @@
 		F2F7EABF2EA81B1A00FDC324 = {
 			isa = PBXGroup;
 			children = (
+				F2B7B6C62EA8590B00D92B44 /* README.md */,
 				F2F7EACA2EA81B1A00FDC324 /* RavenTestiOS */,
 				F2F7EAE42EA81B1B00FDC324 /* RavenTestiOSTests */,
 				F2F7EAEE2EA81B1B00FDC324 /* RavenTestiOSUITests */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2B7B6C72EA8590B00D92B44 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
