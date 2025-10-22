@@ -14,11 +14,22 @@ final class HomeView: BaseController {
     // MARK: Properties
     var presenter: HomePresenterProtocol?
     private var articles: [Article] = []
+    private var filteredArticles: [Article] = []
+    private var isSearching: Bool = false
     private var hasAppeared = false
     
     // MARK: UI Components
     private let offlineBanner = OfflineBannerView()
     private let placeholderView = PlaceholderView()
+    
+    private lazy var searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.placeholder = "Buscar artículos..."
+        search.searchBar.delegate = self
+        return search
+    }()
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -65,6 +76,11 @@ final class HomeView: BaseController {
     private func setupUI() {
         title = "NY Times - Most Emailed"
         view.backgroundColor = .systemBackground
+        
+        // Configurar search controller
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
         
         view.addSubview(offlineBanner)
         view.addSubview(tableView)
@@ -114,6 +130,7 @@ extension HomeView: HomeViewProtocol {
     func showArticles(_ articles: [Article]) {
         print("📰 showArticles called with \(articles.count) articles")
         self.articles = articles
+        self.filteredArticles = articles
         
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
@@ -121,14 +138,16 @@ extension HomeView: HomeViewProtocol {
             // Detener el refresh control si está activo
             self.tableView.refreshControl?.endRefreshing()
             
-            if articles.isEmpty {
+            let displayArticles = self.isSearching ? self.filteredArticles : self.articles
+            
+            if displayArticles.isEmpty && !self.isSearching {
                 // No hay artículos - mostrar placeholder
                 print("⚠️ No articles - showing placeholder")
                 self.tableView.backgroundView = self.placeholderView
                 self.tableView.separatorStyle = .none
             } else {
                 // Hay artículos - ocultar placeholder y mostrar tabla
-                print("✅ \(articles.count) articles - showing table")
+                print("✅ \(displayArticles.count) articles - showing table")
                 self.tableView.backgroundView = nil
                 self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
@@ -151,19 +170,72 @@ extension HomeView: HomeViewProtocol {
 // MARK: - TableView DataSource & Delegate
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        let displayArticles = isSearching ? filteredArticles : articles
+        return displayArticles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ArticleCell = tableView.dequeueReusableCell(for: indexPath)
-        let article = articles[indexPath.row]
+        let displayArticles = isSearching ? filteredArticles : articles
+        let article = displayArticles[indexPath.row]
         cell.configure(with: article)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let article = articles[indexPath.row]
+        let displayArticles = isSearching ? filteredArticles : articles
+        let article = displayArticles[indexPath.row]
         presenter?.didSelectArticle(article)
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension HomeView: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        filterArticles(with: searchText)
+    }
+    
+    private func filterArticles(with searchText: String) {
+        if searchText.isEmpty {
+            isSearching = false
+            filteredArticles = articles
+        } else {
+            isSearching = true
+            filteredArticles = articles.filter { article in
+                // Buscar en título, abstract, autor y sección
+                let titleMatch = article.title.localizedCaseInsensitiveContains(searchText)
+                let abstractMatch = article.abstract.localizedCaseInsensitiveContains(searchText)
+                let authorMatch = article.byline.localizedCaseInsensitiveContains(searchText)
+                let sectionMatch = article.section.localizedCaseInsensitiveContains(searchText)
+                
+                return titleMatch || abstractMatch || authorMatch || sectionMatch
+            }
+        }
+        
+        tableView.reloadData()
+        
+        // Mostrar mensaje si no hay resultados
+        if isSearching && filteredArticles.isEmpty {
+            let noResultsLabel = UILabel()
+            noResultsLabel.text = "No se encontraron artículos"
+            noResultsLabel.textAlignment = .center
+            noResultsLabel.textColor = .secondaryLabel
+            noResultsLabel.font = .systemFont(ofSize: 17, weight: .medium)
+            tableView.backgroundView = noResultsLabel
+        } else if !isSearching || !filteredArticles.isEmpty {
+            tableView.backgroundView = nil
+        }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension HomeView: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        filteredArticles = articles
+        tableView.reloadData()
+        tableView.backgroundView = nil
     }
 }
