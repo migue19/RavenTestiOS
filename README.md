@@ -4,6 +4,27 @@
 
 **RavenTestiOS** es una aplicación iOS nativa desarrollada en Swift que permite a los usuarios consultar y visualizar los artículos más populares del **New York Times**. La aplicación consume la API oficial de NYTimes para mostrar los artículos más enviados por email en los últimos 7 días, proporcionando una experiencia de usuario fluida con soporte completo para modo offline.
 
+## 📱 Preview de la Aplicación
+
+<p align="center">
+  <img src="gif_fragments/fragment_start.gif" width="250" alt="Lista de Artículos" />
+  <img src="gif_fragments/fragment_middle.gif" width="250" alt="Búsqueda y Navegación" />
+  <img src="gif_fragments/fragment_end.gif" width="250" alt="Detalle del Artículo" />
+</p>
+
+<p align="center">
+  <em>Lista de artículos • Búsqueda en tiempo real • Detalle completo</em>
+</p>
+
+### ✨ Características Visuales
+
+- 🔍 **Búsqueda Inteligente**: Filtra artículos en tiempo real por título, autor, resumen o sección
+- 📱 **Lista Dinámica**: Scroll fluido con celdas personalizadas y altura adaptativa
+- 🖼️ **Imágenes Asíncronas**: Carga optimizada de imágenes desde el NY Times
+- 📡 **Banner Offline**: Notificación visual cuando no hay conexión a internet
+- 🎨 **UI Nativa**: Diseño clean siguiendo las guías de Human Interface de Apple
+- ⚡ **Carga Instantánea**: Muestra datos del cache mientras actualiza en background
+
 ## 🎯 Propósito de la Aplicación
 
 La aplicación fue creada con los siguientes objetivos:
