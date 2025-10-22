@@ -78,18 +78,28 @@ final class OfflineBannerView: UIView {
     /// Muestra el banner con animación
     func show(animated: Bool = true) {
         let duration = animated ? 0.3 : 0.0
-        UIView.animate(withDuration: duration) {
-            self.heightConstraint?.constant = 40
-            self.superview?.layoutIfNeeded()
+        heightConstraint?.constant = 40
+        
+        if animated {
+            UIView.animate(withDuration: duration) {
+                self.layoutIfNeeded()
+            }
+        } else {
+            layoutIfNeeded()
         }
     }
     
     /// Oculta el banner con animación
     func hide(animated: Bool = true) {
         let duration = animated ? 0.3 : 0.0
-        UIView.animate(withDuration: duration) {
-            self.heightConstraint?.constant = 0
-            self.superview?.layoutIfNeeded()
+        heightConstraint?.constant = 0
+        
+        if animated {
+            UIView.animate(withDuration: duration) {
+                self.layoutIfNeeded()
+            }
+        } else {
+            layoutIfNeeded()
         }
     }
     

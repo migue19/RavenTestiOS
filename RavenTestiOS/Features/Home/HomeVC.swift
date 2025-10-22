@@ -13,6 +13,7 @@ final class HomeView: BaseController {
     // MARK: Properties
     var presenter: HomePresenterProtocol?
     private var articles: [Article] = []
+    private var hasAppeared = false
     
     // MARK: UI Components
     private let offlineBanner = OfflineBannerView()
@@ -34,7 +35,17 @@ final class HomeView: BaseController {
         setupUI()
         setupNetworkObserver()
         updateOfflineBanner()
-        presenter?.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Solo llamar al presenter la primera vez que aparece la vista
+        // En este punto estamos 100% seguros de que la vista está en la jerarquía
+        if !hasAppeared {
+            hasAppeared = true
+            presenter?.viewDidLoad()
+        }
     }
     
     @MainActor
@@ -83,7 +94,10 @@ final class HomeView: BaseController {
 extension HomeView: HomeViewProtocol {
     func showArticles(_ articles: [Article]) {
         self.articles = articles
-        tableView.reloadData()
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
 

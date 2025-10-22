@@ -90,14 +90,17 @@ La aplicación utiliza la arquitectura **VIPER** (View, Interactor, Presenter, E
 - **Foundation**: Frameworks base de iOS
 
 ### Networking & Data
-- **ConnectionLayer**: Pod personalizado para peticiones HTTP
+- **ConnectionLayer** ⭐: Pod personalizado **desarrollado por mí** para peticiones HTTP
+  - Capa de abstracción moderna sobre URLSession
   - **ConnectionLayerDebug**: Sistema de logging detallado para requests/responses
   - Configuración automática según entorno (DEBUG/RELEASE)
+  - API limpia basada en closures
+  - Manejo robusto de errores de red
 - **Codable**: Decodificación/Codificación JSON
-- **URLSession**: Manejo de requests HTTP
+- **URLSession**: Manejo de requests HTTP (usado internamente por ConnectionLayer)
 
 ### Third-Party Libraries (CocoaPods)
-- **ConnectionLayer**: Capa de abstracción para networking
+- **ConnectionLayer** ⭐: **Pod propio desarrollado por mí** - Capa de abstracción para networking
 - **SwiftMessages**: Mensajes y notificaciones elegantes
 - **Lottie-iOS**: Animaciones JSON
 
@@ -263,6 +266,70 @@ GET https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json
 1. Visita https://developer.nytimes.com/
 2. Crea una cuenta
 3. Genera una API key para "Most Popular API"
+
+## ⭐ ConnectionLayer - Pod Personalizado
+
+**ConnectionLayer** es un **pod desarrollado por mí** que proporciona una capa de abstracción moderna y elegante para realizar peticiones HTTP en iOS.
+
+### 🎯 ¿Por qué crear mi propio pod?
+
+En lugar de usar librerías de terceros como Alamofire o Moya, decidí desarrollar mi propia solución de networking por las siguientes razones:
+
+1. **Control Total**: Entender completamente cómo funciona cada parte del código
+2. **Aprendizaje Profundo**: Dominar URLSession y networking en iOS a bajo nivel
+3. **Sin Dependencias Externas**: Reducir el tamaño de la app y evitar breaking changes
+4. **Personalización**: API diseñada específicamente para mis necesidades
+5. **Mantenibilidad**: Código propio es más fácil de mantener y extender
+
+### 🚀 Características de ConnectionLayer
+
+- ✅ **API Moderna**: Basada en closures y callbacks
+- ✅ **Type-Safe**: Uso de enums para métodos HTTP y errores
+- ✅ **Debug Integrado**: Sistema de logging detallado activable
+- ✅ **Manejo Robusto de Errores**: Categorización clara de errores de red
+- ✅ **Ligero y Rápido**: Sin overhead innecesario
+- ✅ **Fácil de Usar**: API intuitiva y simple
+
+### 💻 Ejemplo de Uso
+
+```swift
+// Inicializar con debug habilitado
+let connectionLayer = ConnectionLayer(isDebug: true)
+
+// Hacer una petición GET
+connectionLayer.request(
+    url: "https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json",
+    method: .get,
+    params: ["api-key": apiKey],
+    success: { data in
+        // Procesar datos exitosos
+        let decoder = JSONDecoder()
+        let response = try? decoder.decode(NYTimesResponse.self, from: data)
+    },
+    fail: { error in
+        // Manejar error
+        print("Error: \(error)")
+    }
+)
+```
+
+### 📦 Instalación (CocoaPods)
+
+```ruby
+pod 'ConnectionLayer', :git => 'https://github.com/tu-usuario/ConnectionLayer.git'
+```
+
+### 🏗️ Arquitectura Interna
+
+```
+ConnectionLayer
+    ↓
+URLSession (Foundation)
+    ↓
+Network Layer (iOS)
+```
+
+El pod actúa como una capa delgada sobre URLSession, proporcionando una API más amigable sin perder el control de las peticiones HTTP.
 
 ## 🔍 ConnectionLayerDebug
 
