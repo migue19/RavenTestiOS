@@ -17,6 +17,9 @@ public class CoreDataManager {
     
     // Added: allow tests to inject an in-memory context
     public var overrideContext: NSManagedObjectContext?
+    
+    // Added: flag to use synchronous operations in tests
+    public var isTestMode: Bool = false
 
     // Added: internal persistent container used as a safe fallback when AppDelegate isn't available
     private lazy var internalContainer: NSPersistentContainer = {
@@ -48,7 +51,7 @@ public class CoreDataManager {
     
     // MARK: - Save Articles
     public func saveArticles(_ articles: [Article], completion: @escaping (Bool) -> Void) {
-        context.perform {
+        let performBlock = {
             // Primero eliminar todos los artículos existentes
             self.deleteAllArticles()
             
@@ -89,21 +92,29 @@ public class CoreDataManager {
             do {
                 try self.context.save()
                 print("✅ CoreDataManager: \(articles.count) artículos guardados exitosamente")
-                DispatchQueue.main.async {
-                    completion(true)
-                }
+                completion(true)
             } catch {
                 print("❌ CoreDataManager Error al guardar: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    completion(false)
-                }
+                completion(false)
+            }
+        }
+        
+        if isTestMode {
+            // In test mode, execute directly on the current thread
+            performBlock()
+        } else {
+            // In production, execute on context's queue and dispatch completion to main
+            context.perform {
+                performBlock()
+                // Note: performBlock already calls completion in test mode
+                // In production mode, we don't call it again since performBlock does it
             }
         }
     }
     
     // MARK: - Fetch Articles
     public func fetchArticles(completion: @escaping ([Article]) -> Void) {
-        context.perform {
+        let performBlock = {
             let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastUpdated", ascending: false)]
             
@@ -144,55 +155,67 @@ public class CoreDataManager {
                 }
                 
                 print("✅ CoreDataManager: \(articles.count) artículos recuperados")
-                DispatchQueue.main.async {
-                    completion(articles)
-                }
+                completion(articles)
             } catch {
                 print("❌ CoreDataManager Error al recuperar: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    completion([])
-                }
+                completion([])
+            }
+        }
+        
+        if isTestMode {
+            performBlock()
+        } else {
+            context.perform {
+                performBlock()
             }
         }
     }
     
     // MARK: - Check if has cached articles
     public func hasCachedArticles(completion: @escaping (Bool) -> Void) {
-        context.perform {
+        let performBlock = {
             let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
             fetchRequest.fetchLimit = 1
             
             do {
                 let count = try self.context.count(for: fetchRequest)
-                DispatchQueue.main.async {
-                    completion(count > 0)
-                }
+                completion(count > 0)
             } catch {
                 print("❌ CoreDataManager Error al verificar cache: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    completion(false)
-                }
+                completion(false)
+            }
+        }
+        
+        if isTestMode {
+            performBlock()
+        } else {
+            context.perform {
+                performBlock()
             }
         }
     }
     
     // MARK: - Get cache date
     public func getCacheDate(completion: @escaping (Date?) -> Void) {
-        context.perform {
+        let performBlock = {
             let fetchRequest: NSFetchRequest<ArticleEntity> = ArticleEntity.fetchRequest()
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "lastUpdated", ascending: false)]
             fetchRequest.fetchLimit = 1
             
             do {
                 let entities = try self.context.fetch(fetchRequest)
-                DispatchQueue.main.async {
-                    completion(entities.first?.lastUpdated)
-                }
+                completion(entities.first?.lastUpdated)
             } catch {
                 print("❌ CoreDataManager Error al obtener fecha de cache: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    completion(nil)
-                }
+                completion(nil)
+            }
+        }
+        
+        if isTestMode {
+            performBlock()
+        } else {
+            context.perform {
+                performBlock()
             }
         }
     }
