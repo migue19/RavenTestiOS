@@ -50,7 +50,15 @@ final class OfflineBannerView: UIView {
         
         // Crear constraint de altura inicial en 0
         heightConstraint = heightAnchor.constraint(equalToConstant: 0)
+        heightConstraint?.priority = .required
         heightConstraint?.isActive = true
+        
+        // Constraints del label con menor prioridad para que puedan romperse cuando altura = 0
+        let topConstraint = messageLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8)
+        topConstraint.priority = .defaultHigh
+        
+        let bottomConstraint = messageLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
+        bottomConstraint.priority = .defaultHigh
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: topAnchor),
@@ -58,10 +66,10 @@ final class OfflineBannerView: UIView {
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            messageLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            topConstraint,
             messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            messageLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
+            bottomConstraint
         ])
     }
     
