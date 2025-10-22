@@ -151,13 +151,10 @@ extension HomeView: HomeViewProtocol {
 // MARK: - TableView DataSource & Delegate
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("🔢 numberOfRowsInSection called - returning \(articles.count) rows")
-        print("🔢 TableView backgroundView is: \(tableView.backgroundView != nil ? "SET" : "nil")")
         return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("🔧 cellForRowAt called for row \(indexPath.row)")
         let cell: ArticleCell = tableView.dequeueReusableCell(for: indexPath)
         let article = articles[indexPath.row]
         cell.configure(with: article)
