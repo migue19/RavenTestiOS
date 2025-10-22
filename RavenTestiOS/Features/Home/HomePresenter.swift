@@ -41,6 +41,6 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     
     func didFailFetchingArticles(error: String) {
         view?.hideHUD()
-        view?.showMessage(message: error, type: .error)
+        view?.showError(error)
     }
 }

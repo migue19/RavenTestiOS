@@ -12,6 +12,7 @@ import UIKit
 protocol HomeViewProtocol: AnyObject, GeneralView {
     var presenter: HomePresenterProtocol? { get set }
     func showArticles(_ articles: [Article])
+    func showError(_ error: String)
 }
 // PRESENTER -> ROUTER
 protocol HomeRouterProtocol: AnyObject {

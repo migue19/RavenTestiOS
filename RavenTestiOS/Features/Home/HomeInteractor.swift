@@ -50,6 +50,7 @@ extension HomeInteractor: HomeRemoteDataManagerOutputProtocol {
     }
     
     func onArticlesFetchFailed(error: String) {
+        print("❌ onArticlesFetchFailed: \(error)")
         // Si falla la petición remota, verificar si hay datos en cache
         localDataManager?.hasCachedArticles { [weak self] hasCache in
             if hasCache {
@@ -58,10 +59,14 @@ extension HomeInteractor: HomeRemoteDataManagerOutputProtocol {
                 self?.localDataManager?.fetchArticles { cachedArticles in
                     if !cachedArticles.isEmpty {
                         self?.presenter?.didFetchArticles(cachedArticles)
+                    } else {
+                        // Cache vacío, mostrar error
+                        self?.presenter?.didFailFetchingArticles(error: error)
                     }
                 }
             } else {
                 // No hay datos en cache, mostrar error
+                print("⚠️ No cache available - showing error")
                 self?.presenter?.didFailFetchingArticles(error: error)
             }
         }
