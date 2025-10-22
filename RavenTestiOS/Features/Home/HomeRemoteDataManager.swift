@@ -12,7 +12,7 @@ import ConnectionLayer
 class HomeRemoteDataManager: HomeRemoteDataManagerInputProtocol {
     
     var remoteRequestHandler: HomeRemoteDataManagerOutputProtocol?
-    private let connectionLayer = ConnectionLayer()
+    private let connectionLayer = ConnectionLayer(isDebug: connectionLayerDebug)
     
     func fetchArticles() {
         connectionLayer.connectionRequest(

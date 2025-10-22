@@ -91,6 +91,8 @@ La aplicación utiliza la arquitectura **VIPER** (View, Interactor, Presenter, E
 
 ### Networking & Data
 - **ConnectionLayer**: Pod personalizado para peticiones HTTP
+  - **ConnectionLayerDebug**: Sistema de logging detallado para requests/responses
+  - Configuración automática según entorno (DEBUG/RELEASE)
 - **Codable**: Decodificación/Codificación JSON
 - **URLSession**: Manejo de requests HTTP
 
@@ -261,6 +263,124 @@ GET https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json
 1. Visita https://developer.nytimes.com/
 2. Crea una cuenta
 3. Genera una API key para "Most Popular API"
+
+## 🔍 ConnectionLayerDebug
+
+La aplicación utiliza **ConnectionLayerDebug** para facilitar el desarrollo y debugging de las peticiones HTTP.
+
+### ¿Qué es ConnectionLayerDebug?
+
+Es un sistema de logging integrado en el pod `ConnectionLayer` que muestra información detallada de todas las peticiones y respuestas HTTP en la consola de Xcode.
+
+### Configuración Automática por Entorno
+
+El debug se activa/desactiva automáticamente según el entorno:
+
+```swift
+// Archivo: Enviroment.swift
+var connectionLayerDebug: Bool {
+    #if DEBUG
+    return true  // ✅ Activa logs detallados en desarrollo
+    #else
+    return false // ❌ Desactiva logs en producción
+    #endif
+}
+```
+
+### Uso en RemoteDataManager
+
+```swift
+// Archivo: HomeRemoteDataManager.swift
+private let connectionLayer = ConnectionLayer(isDebug: connectionLayerDebug)
+```
+
+### Información que Muestra en Consola
+
+Cuando `connectionLayerDebug = true`, verás en la consola:
+
+#### 📤 Request (Petición):
+```
+URL: https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=xxx
+Method: GET
+Headers: ["Content-Type": "application/json", "Accept": "application/json"]
+Body: No Body
+```
+
+#### 📥 Response (Respuesta):
+```
+Status Code: 200
+Response(JSON): {
+    "status": "OK",
+    "copyright": "Copyright (c) 2025 The New York Times Company...",
+    "num_results": 20,
+    "results": [...]
+}
+Servicio exitoso
+```
+
+#### ❌ Error:
+```
+Transport error: The Internet connection appears to be offline.
+```
+
+### Ventajas del ConnectionLayerDebug
+
+1. **Debugging Rápido**: Identifica problemas de red al instante
+2. **Validación de Datos**: Verifica que los parámetros sean correctos
+3. **Monitoreo de Headers**: Revisa que los headers estén bien configurados
+4. **Análisis de Respuestas**: Ve exactamente qué datos devuelve el servidor
+5. **Sin Impacto en Producción**: Se desactiva automáticamente en builds de release
+
+### Ejemplo de Output Real
+
+```console
+🌐 [ConnectionLayer] ========================================
+URL: https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=YOUR_KEY
+Method: GET
+Headers: ["Content-Type": "application/json"]
+Body: No Body
+----------------------------------------
+Status Code: 200
+Response(JSON): {
+    num_results = 20;
+    results = (
+        {
+            abstract = "The article discusses...";
+            byline = "By Jane Doe";
+            id = 100000009123456;
+            title = "Breaking News Story";
+            ...
+        }
+    );
+    status = OK;
+}
+Servicio exitoso
+🌐 ========================================
+```
+
+### Desactivar Manualmente
+
+Si necesitas desactivar el debug temporalmente sin cambiar el entorno:
+
+```swift
+// En Enviroment.swift
+var connectionLayerDebug: Bool {
+    return false // Desactiva manualmente
+}
+```
+
+### Mejores Prácticas
+
+✅ **DO (Hacer):**
+- Mantener activado en DEBUG para facilitar desarrollo
+- Revisar los logs cuando hay errores de red
+- Usar para validar estructura de JSON
+- Verificar que los parámetros se envíen correctamente
+
+❌ **DON'T (No hacer):**
+- Dejar activado en producción (afecta rendimiento)
+- Loggear información sensible (passwords, tokens personales)
+- Confiar solo en logs sin manejar errores programáticamente
 
 ## 🎨 Diseño y UX
 
