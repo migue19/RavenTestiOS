@@ -163,13 +163,31 @@ class DetailView: BaseController {
     }
     
     private func loadImage(from urlString: String) {
+        // Verificar si hay conexión a internet antes de intentar descargar
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                self.articleImageView.image = UIImage(systemName: "photo")
+                self.articleImageView.tintColor = .systemGray3
+                self.articleImageView.contentMode = .center
+            }
+            return
+        }
+        
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            guard let data = data, error == nil else { return }
+            guard let data = data, error == nil else {
+                DispatchQueue.main.async {
+                    self?.articleImageView.image = UIImage(systemName: "photo")
+                    self?.articleImageView.tintColor = .systemGray3
+                    self?.articleImageView.contentMode = .center
+                }
+                return
+            }
             
             DispatchQueue.main.async {
                 self?.articleImageView.image = UIImage(data: data)
+                self?.articleImageView.contentMode = .scaleAspectFill
             }
         }.resume()
     }
