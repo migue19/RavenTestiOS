@@ -15,29 +15,7 @@ final class HomeView: BaseController {
     private var articles: [Article] = []
     
     // MARK: UI Components
-    private lazy var offlineBanner: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemOrange
-        view.isHidden = true
-        
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "📵 Sin conexión - Mostrando datos guardados"
-        label.textColor = .white
-        label.font = .systemFont(ofSize: 14, weight: .medium)
-        label.textAlignment = .center
-        
-        view.addSubview(label)
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 8),
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
-        ])
-        
-        return view
-    }()
+    private let offlineBanner = OfflineBannerView()
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -75,7 +53,6 @@ final class HomeView: BaseController {
             offlineBanner.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             offlineBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             offlineBanner.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            offlineBanner.heightAnchor.constraint(equalToConstant: 40),
             
             tableView.topAnchor.constraint(equalTo: offlineBanner.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -99,9 +76,7 @@ final class HomeView: BaseController {
     
     private func updateOfflineBanner() {
         let isConnected = NetworkMonitor.shared.isConnected
-        UIView.animate(withDuration: 0.3) {
-            self.offlineBanner.isHidden = isConnected
-        }
+        offlineBanner.updateConnectivityStatus(isConnected: isConnected)
     }
 }
 
